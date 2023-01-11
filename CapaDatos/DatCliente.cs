@@ -24,12 +24,14 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spCrearCliente", cn);
+                cmd = new SqlCommand("spAgregarCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@razonSocial", Cli.RazonSocial);
                 cmd.Parameters.AddWithValue("@dni", Cli.Dni);
                 cmd.Parameters.AddWithValue("@correo", Cli.Correo);
                 cmd.Parameters.AddWithValue("@telefono", Cli.Telefono);
+                cmd.Parameters.AddWithValue("@direccion", Cli.direccion);
+                cmd.Parameters.AddWithValue("@estCliente", Cli.estCliente);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
@@ -67,7 +69,8 @@ namespace CapaDatos
                         Dni = dr["dni"].ToString(),
                         Correo = dr["correo"].ToString(),
                         Telefono = Convert.ToInt32(dr["telefono"]),
-                        direccion = dr["direccion"].ToString()
+                        direccion = dr["direccion"].ToString(),
+                        estCliente =Convert.ToBoolean(dr["estCliente"])
                     };
                     lista.Add(Cli);
                 }

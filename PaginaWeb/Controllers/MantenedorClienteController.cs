@@ -17,5 +17,31 @@ namespace PaginaWeb.Controllers
             ViewBag.lista = lista;
             return View(lista);
         }
+        [HttpGet]
+        public ActionResult AgregarCliente()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AgregarCliente( EntCliente Cli) {
+            bool insertar = LogCliente.Instancia.AgregarCliente(Cli);
+            try
+            {
+                if (insertar)
+                {
+                    return RedirectToAction("ListarCliente");
+                }
+                else
+                {
+                    return View(Cli);
+                }
+            }
+            catch (Exception e)
+            {
+
+                return RedirectToAction("Error de registro del usuario /n", new { mesjExeption = e.Message });
+            }
+        
+        }
     }
 }

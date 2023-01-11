@@ -14,19 +14,23 @@ namespace CapaEntidad
         private string correo;
         private int telefono;
         public string direccion;
-
+        public bool estCliente;
         #region Constructores
+        public Boolean EstCliente { get; set; }
+       
         public EntCliente()
         {
         }
 
-        public EntCliente(int idCliente, string razonSocial, string dni, string correo, int telefono)
+        public EntCliente(int idCliente, string razonSocial, string dni, string correo, int telefono, Boolean estCliente, string direccion)
         {
             this.idCliente = idCliente;
             this.razonSocial = razonSocial;
             this.dni = dni;
             this.correo = correo;
             this.telefono = telefono;
+            this.estCliente = estCliente;
+            this.direccion= direccion;
         }
         #endregion Constructores
 
@@ -52,6 +56,11 @@ namespace CapaEntidad
         {
             get { return correo; }
             set { correo = value; }
+        }
+        public string Direccion
+        {
+            get { return direccion; }
+            set { direccion = value; }
         }
         public int Telefono
         {
