@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
+
+    
     public class DatCliente
     {
+        
+
         private static readonly DatCliente _instance = new DatCliente();
         public static DatCliente Instancia
         {
@@ -31,7 +35,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@correo", Cli.Correo);
                 cmd.Parameters.AddWithValue("@telefono", Cli.Telefono);
                 cmd.Parameters.AddWithValue("@direccion", Cli.direccion);
-                cmd.Parameters.AddWithValue("@estCliente", Cli.estCliente);
+                cmd.Parameters.AddWithValue("@estCliente", Cli.estCliente=true);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
@@ -51,6 +55,7 @@ namespace CapaDatos
         }
         public List<EntCliente> ListarCliente()
         {
+            
             SqlCommand cmd = null;
             List<EntCliente> lista = new List<EntCliente>();
             try
@@ -70,7 +75,7 @@ namespace CapaDatos
                         Correo = dr["correo"].ToString(),
                         Telefono = Convert.ToInt32(dr["telefono"]),
                         direccion = dr["direccion"].ToString(),
-                        estCliente =Convert.ToBoolean(dr["estCliente"])
+                        estCliente =Convert.ToBoolean(dr["estCliente"].ToString())
                     };
                     lista.Add(Cli);
                 }
@@ -86,5 +91,7 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        
     }
 }

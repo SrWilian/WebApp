@@ -16,8 +16,9 @@ create table Cliente(
 )
 go
 
+select * from Cliente
 -- INSERTAR CLIENTE
-create or alter procedure spAgregarCliente(
+create procedure spAgregarCliente(
 	@razonSocial varchar(50),
 	@dni varchar(8),
 	@correo varchar(50),
@@ -32,7 +33,8 @@ BEGIN
 END
 GO
 -- EDITAR CLIENTE
-CREATE OR ALTER PROCEDURE spEditarCliente
+--drop procedure spEditarCliente
+create PROCEDURE spEditarCliente(
 	@idCliente int,
 	@razonSocial varchar(50),
 	@dni varchar(8),
@@ -40,32 +42,32 @@ CREATE OR ALTER PROCEDURE spEditarCliente
 	@telefono int,
 	@direccion varchar(50),
 	@EstadoCliente bit
+	)
 	as
-	
 	begin
 	update Cliente set 
-	idCliente = @idCliente,
+	--idCliente = @idCliente,
 	razonSocial = @razonSocial,
 	dni = @dni,
 	correo = @correo,
 	telefono = @telefono,
-	direccion = @direccion,
-	EstCliente  = @EstadoCliente,
-	EstCliente = 0
+	direccion = @direccion
+	--EstCliente  = @EstadoCliente
+	--EstCliente  =0
 	where idCliente = @idCliente
 	end
 go
 -- LISTAR CLIENTE
-CREATE OR ALTER PROCEDURE spListarCliente
+alter PROCEDURE spListarCliente
 
 as
 BEGIN
 	Select *from Cliente
-	where EstCliente = '0'
+	where EstCliente = '1'
 END
 GO
 
-CREATE OR ALTER PROCEDURE spBuscarCliente(
+CREATE PROCEDURE spBuscarCliente(
 	@Campo varchar(50)
 )
 AS
