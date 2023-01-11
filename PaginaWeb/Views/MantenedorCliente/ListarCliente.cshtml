@@ -7,13 +7,10 @@
 <h2>ListarCliente</h2>
 
 <p>
-    @Html.ActionLink("Nuevo Cliente", "AgregarCliente")
+    @Html.ActionLink("Create New", "AgregarCliente")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EstCliente)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.IdCliente)
         </th>
@@ -32,15 +29,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Telefono)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstCliente)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @*@item.EstCliente*@
-            @Html.DisplayFor(modelItem => item.EstCliente)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.IdCliente)
         </td>
@@ -58,6 +54,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstCliente)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

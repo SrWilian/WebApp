@@ -6,11 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Net;
 
 namespace CapaDatos
 {
-
-    
     public class DatCliente
     {
         
@@ -34,8 +34,8 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@dni", Cli.Dni);
                 cmd.Parameters.AddWithValue("@correo", Cli.Correo);
                 cmd.Parameters.AddWithValue("@telefono", Cli.Telefono);
-                cmd.Parameters.AddWithValue("@direccion", Cli.direccion);
-                cmd.Parameters.AddWithValue("@estCliente", Cli.estCliente=true);
+                cmd.Parameters.AddWithValue("@direccion", Cli.Direccion);
+                cmd.Parameters.AddWithValue("@estCliente", Cli.EstCliente);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
@@ -74,8 +74,8 @@ namespace CapaDatos
                         Dni = dr["dni"].ToString(),
                         Correo = dr["correo"].ToString(),
                         Telefono = Convert.ToInt32(dr["telefono"]),
-                        direccion = dr["direccion"].ToString(),
-                        estCliente =Convert.ToBoolean(dr["estCliente"].ToString())
+                        Direccion = dr["direccion"].ToString(),
+                        EstCliente =Convert.ToBoolean(dr["estCliente"])
                     };
                     lista.Add(Cli);
                 }
@@ -90,8 +90,6 @@ namespace CapaDatos
                 cmd.Connection.Close();
             }
             return lista;
-        }
-
-        
+        }    
     }
 }

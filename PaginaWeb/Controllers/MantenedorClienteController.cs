@@ -12,8 +12,9 @@ namespace PaginaWeb.Controllers
     public class MantenedorClienteController : Controller
     {
         // GET: MantenedorCliente
-        public ActionResult ListarCliente()
+        public ActionResult ListarCliente(string NombreCliente)
         {
+            
             List<EntCliente> lista = LogCliente.Instancia.ListarCliente();
             ViewBag.lista = lista;
             return View(lista);
@@ -44,6 +45,69 @@ namespace PaginaWeb.Controllers
             }
         
         }
+
+        /*
+        [HttpGet]
+        public ActionResult EditarCliente(int IdCliente)
+        {
+            EntCliente Cli = new EntCliente();
+            Cli = LogCliente.Instancia.BuscarIdCliente(IdCliente);
+
+            return View(c);
+
+        }
+        [HttpPost]
+        public ActionResult ActualizarCliente(entCliente c, FormCollection frm)
+        {
+            try
+            {
+                Boolean edita = logCliente.Instancia.ActualizarCliente(c);
+                if (edita)
+                {
+                    return RedirectToAction("ListarCliente");
+
+                }
+                else
+                {
+                    return View(c);
+                }
+            }
+
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("ActualizarCliente", new { mesjExceptio = ex.Message });
+            }
+        }
+        [HttpGet]
+        public ActionResult EliminarCliente()
+        {
+
+            return View();
+        }
+        public ActionResult EliminarCliente(int IdCliente)
+        {
+            try
+            {
+                Boolean Deshabilita = logCliente.Instancia.EliminarCliente(IdCliente);
+                if (Deshabilita)
+                {
+                    return RedirectToAction("ListarCliente");
+                }
+                else
+                {
+                    return View(IdCliente);
+                }
+            }
+
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("EliminarCliente", new { mesjExceptio = ex.Message });
+            }
+        }
+
+        */
+
+
 
         //private void consultarCliente()
         //{
