@@ -12,7 +12,7 @@ namespace PaginaWeb.Controllers
     public class MantenedorClienteController : Controller
     {
         // GET: MantenedorCliente
-        public ActionResult ListarCliente(string NombreCliente)
+        public ActionResult ListarCliente()
         {
             
             List<EntCliente> lista = LogCliente.Instancia.ListarCliente();
@@ -46,22 +46,20 @@ namespace PaginaWeb.Controllers
         
         }
 
-        /*
+        
         [HttpGet]
-        public ActionResult EditarCliente(int IdCliente)
+        public ActionResult EditarCliente()
         {
-            EntCliente Cli = new EntCliente();
-            Cli = LogCliente.Instancia.BuscarIdCliente(IdCliente);
-
-            return View(c);
+         
+            return View();
 
         }
         [HttpPost]
-        public ActionResult ActualizarCliente(entCliente c, FormCollection frm)
+        public ActionResult EditarCliente(EntCliente Cli, FormCollection frm)
         {
             try
             {
-                Boolean edita = logCliente.Instancia.ActualizarCliente(c);
+                Boolean edita = LogCliente.Instancia.EditarCliente(Cli);
                 if (edita)
                 {
                     return RedirectToAction("ListarCliente");
@@ -69,7 +67,7 @@ namespace PaginaWeb.Controllers
                 }
                 else
                 {
-                    return View(c);
+                    return View(Cli);
                 }
             }
 
@@ -79,16 +77,16 @@ namespace PaginaWeb.Controllers
             }
         }
         [HttpGet]
-        public ActionResult EliminarCliente()
+        public ActionResult DeshabilitarCliente()
         {
 
             return View();
         }
-        public ActionResult EliminarCliente(int IdCliente)
+        public ActionResult DeshabilitarCliente(int IdCliente)
         {
             try
             {
-                Boolean Deshabilita = logCliente.Instancia.EliminarCliente(IdCliente);
+                Boolean Deshabilita = LogCliente.Instancia.DeshabilitarCliente(IdCliente);
                 if (Deshabilita)
                 {
                     return RedirectToAction("ListarCliente");
@@ -101,11 +99,11 @@ namespace PaginaWeb.Controllers
 
             catch (ApplicationException ex)
             {
-                return RedirectToAction("EliminarCliente", new { mesjExceptio = ex.Message });
+                return RedirectToAction("DeshabilitarCliente", new { mesjExceptio = ex.Message });
             }
         }
 
-        */
+        
 
 
 

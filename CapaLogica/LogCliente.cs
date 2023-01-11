@@ -24,10 +24,22 @@ namespace CapaLogica
         {
             return DatCliente.Instancia.ListarCliente();
         }
+        public bool EditarCliente(EntCliente Cli)
+        {
+            return DatCliente.Instancia.EditarCliente(Cli);
+        }
+        public bool DeshabilitarCliente(int idCliente)
+        {
+            return DatCliente.Instancia.DeshabilitarCliente(idCliente);
+        }
         public EntCliente BuscarNombreCliente(string NombreCliente)
         {
             return DatCliente.Instancia.BuscarNombreCliente(NombreCliente);
         }
+
+
+      
+
         # endregion MANTENEDORES
     }
 }
