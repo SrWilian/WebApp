@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
-
-using CapaEntidad;
+﻿using CapaEntidad;
 using CapaLogica;
-
-using System.Data.SqlClient;
-using System.Data;
+using System;
+using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace PRUEBAS_LOGIN.Controllers
 {
@@ -52,6 +44,10 @@ namespace PRUEBAS_LOGIN.Controllers
         public ActionResult RegistrarUsuario(EntUsuario Usuario)
         {
             bool insertar = LogUsuario.Instancia.RegistrarUsuario(Usuario);
+            EntMensaje Mensaje = new EntMensaje();
+
+            ViewData["Mensaje"] = Mensaje.mensaje;
+            
 
             try
             {
@@ -59,17 +55,24 @@ namespace PRUEBAS_LOGIN.Controllers
                 {
                     return RedirectToAction("ListarCliente");
                 }
+                if (Mensaje.registrado)
+                {
+                    return RedirectToAction("Login", "Acceso");
+                }
 
                 else
                 {
                     ViewData["Mensaje"] = "Las contraseñas no coinciden";
-                    return View(Usuario);
+                    return View(insertar);
                 }
-            }
+                
+            } 
             catch (ApplicationException ex)
             {
                 return RedirectToAction("RegistrarUsuario", new { mesjExceptio = ex.Message });
             }
+            
+         
 
         }
     }

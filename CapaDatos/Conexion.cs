@@ -21,7 +21,7 @@ namespace CapaDatos
         {
             /*\\SQLEXPRESS*/
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-NM7EDQT\\SQLEXPRESS;initial Catalog=Ecociudad;" + "Integrated Security=true";
+            cn.ConnectionString = "Data Source=DESKTOP-NM7EDQT;initial Catalog=Ecociudad;" + "Integrated Security=true";
             return cn;
             
 

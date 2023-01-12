@@ -58,44 +58,44 @@ namespace CapaDatos
         }
 
 
-        public List<EntCliente> ListarUsuario()
-        {
+        //public List<EntCliente> ListarUsuario()
+        //{
 
-            SqlCommand cmd = null;
-            List<EntCliente> lista = new List<EntCliente>();
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarCliente", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    EntCliente Cli = new EntCliente
-                    {
-                        IdCliente = Convert.ToInt32(dr["idCliente"]),
-                        RazonSocial = dr["razonsocial"].ToString(),
-                        Dni = dr["dni"].ToString(),
-                        Correo = dr["correo"].ToString(),
-                        Telefono = Convert.ToInt32(dr["telefono"]),
-                        Direccion = dr["direccion"].ToString(),
-                        EstCliente = Convert.ToBoolean(dr["estCliente"])
-                    };
-                    lista.Add(Cli);
-                }
+        //    SqlCommand cmd = null;
+        //    List<EntUsuario> lista = new List<EntUsuario>();
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("spListarCliente", cn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cn.Open();
+        //        SqlDataReader dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            EntCliente Cli = new EntCliente
+        //            {
+        //                IdCliente = Convert.ToInt32(dr["idCliente"]),
+        //                RazonSocial = dr["razonsocial"].ToString(),
+        //                Dni = dr["dni"].ToString(),
+        //                Correo = dr["correo"].ToString(),
+        //                Telefono = Convert.ToInt32(dr["telefono"]),
+        //                Direccion = dr["direccion"].ToString(),
+        //                EstCliente = Convert.ToBoolean(dr["estCliente"])
+        //            }
+        //            lista.Add(Cli);
+        //        }
 
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                cmd.Connection.Close();
-            }
-            return lista;
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //    finally
+        //    {
+        //        cmd.Connection.Close();
+        //    }
+        //    return lista;
+        //}
 
     }
 }
