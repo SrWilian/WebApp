@@ -35,7 +35,31 @@ BEGIN
 END
 GO
 -- EDITAR CLIENTE
-
+/*
+--drop procedure spEditarCliente
+create PROCEDURE spEditarCliente(
+	@idCliente int,
+	@razonSocial varchar(50),
+	@dni varchar(8),
+	@correo varchar(50),
+	@telefono int,
+	@direccion varchar(50),
+	@EstadoCliente bit
+	)
+	as
+	begin
+	update Cliente set 
+	--idCliente = @idCliente,
+	razonSocial = @razonSocial,
+	dni = @dni,
+	correo = @correo,
+	telefono = @telefono,
+	direccion = @direccion
+	--EstCliente  = @EstadoCliente
+	--EstCliente  =0
+	where idCliente = @idCliente
+	end
+*/
 go
 create or alter PROCEDURE spEditarCliente(
 	@idCliente int,		 @razonSocial varchar(50), @dni varchar(8),
@@ -56,12 +80,15 @@ create or alter PROCEDURE spEditarCliente(
 go
 -- LISTAR CLIENTE
 create or alter PROCEDURE spListarCliente
+
 as
 BEGIN
 	Select *from Cliente
 	where EstCliente = '1'
 END
 GO
+
+
 -- INHABILITAR CLIENTE
 CREATE OR ALTER PROCEDURE spDeshabilitarCliente(
 @idCliente int)
@@ -84,10 +111,32 @@ END
 
 go
 
+
+
+
+
+
+
+
+
+/*
+
+CREATE PROCEDURE spBuscarCliente(
+	@Campo varchar(50)
+)
+AS
+BEGIN
+	Select *from Cliente where razonSocial like @Campo+'%'
+	or dni like @Campo+'%'
+	
+END*/
+
+go
+
 ----------------TABLA EMPLEADO------------------------
 create table empleado(
-idEmplead int  primary key identity,
-nombres varchar(100),
+idEmplead int pk_idEmpleado primary key identity,
+nombres varchar (100),
 apellidos varchar(100),
 email varchar(80),
 dirección varchar(200),
@@ -98,7 +147,7 @@ Departamento int,
 go
 -----COMBOBOX DEPARTAMENTO------
 create table departamento(
-idDepartamento int  primary key identity,
+idDepartamento in pk_idEmplead primary key identityt,
 NombreDepartamento varchar(50)
 )
 
@@ -108,40 +157,6 @@ go
 create table USUARIO(
 idUsuario int primary key identity,
 email varchar(80),
-clave varchar(25)
+Clave 
 )
-go
-create or alter procedure spRegistrarusuario(
-@email varchar(80),
-@clave varchar(25),
-@registrado bit output,
-@Mensaje varchar(100) output
-)
-as 
-begin
-	if(not exists(select * from USUARIO where email = @email))
-		begin
-			insert into USUARIO(email,clave) values (@email,@clave)
-			set @registrado = 1
-			set @Mensaje = 'Registro exitoso'
-		end
-	else
-		begin
-			set @registrado = 0
-			set @Mensaje = 'Correo Existente'
-		end
-end
-go
-Create or alter Procedure spValidarUsuario(
-@email varchar(80),
-@clave varchar(25)
-)
-as
-begin
-	if(exists(select * from USUARIO where email = @email and clave = @clave))
-		select idUsuario from USUARIO  where email = @email and clave = @clave
-		else
-			select '0'
 
-end
-go
