@@ -19,10 +19,10 @@ namespace CapaDatos
         }
         public bool RegistrarUsuario(EntUsuario Usu)
         {
+            EntMensaje Messenger= new EntMensaje();
             SqlCommand cmd = null;
             bool creado = false;
-            bool registrado;
-            string mensaje;
+
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -39,8 +39,8 @@ namespace CapaDatos
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
                 {
-                    registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
-                    mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Messenger.registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
+                    Messenger.mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                     creado = true;
                 }
         }

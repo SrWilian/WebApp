@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace CapaEntidad
 {
     public class EntMensaje
-    {
-        bool creado  { get; set; }
-        bool registrado  { get; set; }
+    { 
+        public bool registrado  { get; set; }
+        public string mensaje { get; set; }
         
     }
 }
