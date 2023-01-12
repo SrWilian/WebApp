@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    internal class Login
+    public class EntMensaje
     {
+        bool creado  { get; set; }
+        bool registrado  { get; set; }
+        
     }
 }
