@@ -18,11 +18,16 @@ namespace PRUEBAS_LOGIN.Controllers
     {
 
         // GET: Acceso
-        public ActionResult Login()
+        //modificado por eric-------------------------------------
+
+        //public ActionResult Login()
+
+        public ActionResult Acceso()
         {
             return View();
         }
 
+       
 
         public ActionResult RegistrarUsuario()
         {
@@ -30,7 +35,20 @@ namespace PRUEBAS_LOGIN.Controllers
         }
 
 
-        [HttpPost]
+        public ActionResult Enter(string user, string password)
+        {
+
+
+        }
+        /// <summary>
+        /// hasta aaqui----------------------------------------------------
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="Usuario"></param>
+        /// <returns></returns>
+
+            [HttpPost]
         public ActionResult RegistrarUsuario(EntUsuario Usuario)
         {
             bool insertar = LogUsuario.Instancia.RegistrarUsuario(Usuario);

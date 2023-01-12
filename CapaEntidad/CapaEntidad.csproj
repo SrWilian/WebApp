@@ -45,6 +45,7 @@
     <Compile Include="EntMensaje.cs" />
     <Compile Include="EntUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntUsuarios.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

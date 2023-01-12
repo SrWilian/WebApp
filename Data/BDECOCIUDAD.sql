@@ -111,7 +111,7 @@ email varchar(80),
 clave varchar(25)
 )
 go
-create or alter procedure spRegistrarusuario(
+create procedure spRegistrarusuario(
 @email varchar(80),
 @clave varchar(25),
 @registrado bit output,
@@ -132,7 +132,7 @@ begin
 		end
 end
 go
-Create or alter Procedure spValidarUsuario(
+Create Procedure spValidarUsuario(
 @email varchar(80),
 @clave varchar(25)
 )
@@ -145,3 +145,17 @@ begin
 
 end
 go
+
+
+CREATE TABLE usuarios(
+	id int IDENTITY(1,1) primary key NOT NULL,
+	email varchar(100) NOT NULL,
+	password varchar(50) NOT NULL,
+	idState int NOT NULL,
+	edad int 
+ )
+
+ CREATE TABLE dbo.cstate(
+	id int IDENTITY(1,1)  primary key,
+	name varchar(50) NULL
+ )

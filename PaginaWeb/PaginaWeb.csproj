@@ -182,11 +182,11 @@
     <Content Include="Views\MantenedorCliente\AgregarCliente.cshtml" />
     <Content Include="Views\MantenedorCliente\EditarCliente.cshtml" />
     <Content Include="Views\MantenedorCliente\DeshabilitarCliente.cshtml" />
+    <Content Include="Views\Acceso\Acceso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Acceso\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
