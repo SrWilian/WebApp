@@ -62,7 +62,7 @@ namespace CapaDatos
         {
 
             SqlCommand cmd = null;
-            List<EntUsuario> lista = new List<EntUsuario>();
+            List<EntCliente> lista = new List<EntCliente>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();

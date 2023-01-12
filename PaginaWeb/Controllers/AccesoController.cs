@@ -34,12 +34,12 @@ namespace PRUEBAS_LOGIN.Controllers
             return View();
         }
 
-
+        /*
         public ActionResult Enter(string user, string password)
         {
 
 
-        }
+        }*/
         /// <summary>
         /// hasta aaqui----------------------------------------------------
         /// 

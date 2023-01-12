@@ -15,11 +15,11 @@ namespace CapaLogica
         {
             get { return _instancia; }
         }
-       
+       /*
         public List<EntUsuarios> ListarUsuarios()
         {
             return DatUsuarios.Instancia.ListarUsuarios();
         }
-
+       */
     }
-}
+} 
