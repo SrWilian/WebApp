@@ -73,9 +73,12 @@ namespace CapaDatos
                 cn.Open();
                 Usuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                 int i = cmd.ExecuteNonQuery();
+
+                //aqui revisar porque i= -1
                 if (i != 0)
                 {
                     creado = true;
+                    Messenger.mensaje = ("bienvenido " + Usuario.Correo);
                 }
             }
             catch (Exception e)
