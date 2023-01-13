@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PaginaWeb.Permisos;
 namespace PaginaWeb.Controllers
 {
+    [ValidarSesion]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,6 +26,11 @@ namespace PaginaWeb.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult CerrarSesion()
+        {
+            Session["usuario"] = null;
+            return RedirectToAction("Login", "Acceso");
         }
     }
 }

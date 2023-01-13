@@ -28,23 +28,24 @@ namespace CapaDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spRegistrarusuario", cn);
-                cmd.Parameters.AddWithValue("correo", Usu.Correo);
-                cmd.Parameters.AddWithValue("clave", Usu.Clave);
-                cmd.Parameters.Add("registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                cmd.Parameters.AddWithValue("@email", Usu.Correo);
+                cmd.Parameters.AddWithValue("@clave", Usu.Clave);
+                cmd.Parameters.Add("@registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 cmd.CommandType = CommandType.StoredProcedure;
             
                 cn.Open();
             
                
                 int i = cmd.ExecuteNonQuery();
+                Messenger.registrado = Convert.ToBoolean(cmd.Parameters["@Registrado"].Value);
+                Messenger.mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 if (i != 0)
                 {
-                    Messenger.registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
-                    Messenger.mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    
                     creado = true;
                 }
-        }
+            }
             catch (Exception e)
             {
                 throw e;
@@ -54,8 +55,40 @@ namespace CapaDatos
                 cmd.Connection.Close();
             }
             return creado;
-
         }
+        public bool LoginUsuario(EntUsuario Usuario)
+        {
+            EntMensaje Messenger = new EntMensaje();
+            SqlCommand cmd = null;
+            bool creado = false;
+            try
+            {
+
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spValidarUsuario", cn);
+                cmd.Parameters.AddWithValue("@email", Usuario.Correo);
+                cmd.Parameters.AddWithValue("@clave", Usuario.Clave);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+                Usuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                int i = cmd.ExecuteNonQuery();
+                if (i != 0)
+                {
+                    creado = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return creado;
+        }
+
 
 
         //public List<EntCliente> ListarUsuario()

@@ -140,6 +140,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Login.css" />
+    <Content Include="Content\css\Login2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -182,7 +185,9 @@
     <Content Include="Views\MantenedorCliente\AgregarCliente.cshtml" />
     <Content Include="Views\MantenedorCliente\EditarCliente.cshtml" />
     <Content Include="Views\MantenedorCliente\DeshabilitarCliente.cshtml" />
-    <Content Include="Views\Acceso\Acceso.cshtml" />
+    <Content Include="Views\Acceso\Acceso 2.cshtml" />
+    <Content Include="Views\Acceso\Login.cshtml" />
+    <Content Include="Views\Acceso\RegistrarUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
