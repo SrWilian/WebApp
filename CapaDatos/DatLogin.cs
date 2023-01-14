@@ -40,6 +40,11 @@ namespace CapaDatos
                 int i = cmd.ExecuteNonQuery();
                 Messenger.registrado = Convert.ToBoolean(cmd.Parameters["@Registrado"].Value);
                 Messenger.mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                if(Messenger.registrado == false)
+                {
+                    i=0;
+                }
+                creado = Messenger.registrado;
                 if (i != 0)
                 {
                     
@@ -56,6 +61,43 @@ namespace CapaDatos
             }
             return creado;
         }
+
+
+        public string Mensaje(string Mnje, EntUsuario Usu)
+        {
+           // EntUsuario Usu = new EntUsuario();
+            EntMensaje Messenger = new EntMensaje();
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spRegistrarusuario", cn);
+                cmd.Parameters.AddWithValue("@email", Usu.Correo);
+                cmd.Parameters.AddWithValue("@clave", Usu.Clave);
+                cmd.Parameters.Add("@registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+
+
+                int i = cmd.ExecuteNonQuery();
+                Messenger.registrado = Convert.ToBoolean(cmd.Parameters["@Registrado"].Value);
+                Mnje = cmd.Parameters["@Mensaje"].Value.ToString();                
+            }
+
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return Mnje;
+        }
+
+
         public bool LoginUsuario(EntUsuario Usuario)
         {
             EntMensaje Messenger = new EntMensaje();
@@ -91,6 +133,18 @@ namespace CapaDatos
             }
             return creado;
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

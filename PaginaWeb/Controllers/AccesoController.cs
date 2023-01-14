@@ -28,12 +28,14 @@ namespace PRUEBAS_LOGIN.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegistrarUsuario(EntUsuario Usuario)
+        public ActionResult RegistrarUsuario(EntUsuario Usuario, EntMensaje Mensaje)
         {
+        string mensaje = "no debo estar vacío" +
+                "";
             bool insertar = LogUsuario.Instancia.RegistrarUsuario(Usuario);
-            EntMensaje Mensaje = new EntMensaje();
 
-            ViewData["@Mensaje"] = Mensaje.mensaje;
+            mensaje= LogUsuario.Instancia.Mensaje(mensaje, Usuario);
+            ViewData["@Mensaje"] = mensaje;
             
 
             try
@@ -44,8 +46,8 @@ namespace PRUEBAS_LOGIN.Controllers
                 }
                 if (insertar== false)
                 {
-                    ViewData["@Mensaje"] = Mensaje.mensaje;
-                    return RedirectToAction("Login", "RegistrarUsuario");
+                    ViewData["@Mensaje"] = mensaje;
+                    return RedirectToAction("RegistrarUsuario", "Acceso");
                 }
 
                 else
