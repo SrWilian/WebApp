@@ -1,4 +1,53 @@
-﻿@model CapaEntidad.EntUsuario
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro usuario</title>
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --dark: #232830;
+            --hospital-green: #ACD9B2;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--@model CapaEntidad.EntUsuario
 @{
     Layout = null;
 }
@@ -30,29 +79,29 @@
                 <div class="d-flex justify-content-center form_container">
                     <form action="@Url.Action("RegistrarUsuario", "Acceso")" method="post">
                         <div class="input-group mb-3">
-                            <div class="class="col-md-10">
+                            <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">
+                            <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">-->
                             @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control input_user" } })*@
-                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                            <!--@Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="Clave" class="form-control input_user" value="" placeholder="Contraseña">
+                            <input type="password" name="Clave" class="form-control input_user" value="" placeholder="Contraseña">-->
                             @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })*@
-                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                            <!--@Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
 
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="ConfirmarClave" class="form-control input_pass" value="" placeholder="Confirmar Contraseña">
+                            <input type="password" name="ConfirmarClave" class="form-control input_pass" value="" placeholder="Confirmar Contraseña">-->
                             @*@Html.EditorFor(model => model.ConfirmarClave, new { htmlAttributes = new { @class = "form-control" } })*@
-                            @Html.ValidationMessageFor(model => model.ConfirmarClave, "", new { @class = "text-danger" })
+                            <!--@Html.ValidationMessageFor(model => model.ConfirmarClave, "", new { @class = "text-danger" })
                         </div>
 
 
@@ -80,8 +129,15 @@
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </body>
-</html>
+
+section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+}
+
+
+</html>-->
 
 
 @*@model CapaEntidad.EntUsuario

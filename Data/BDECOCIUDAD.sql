@@ -25,23 +25,10 @@ NombreDepartamento varchar(50)
 )
 
 go
------TABLA USUARIOS-----
-ALTER procedure [dbo].[spRegistrarusuario](
-@email varchar(80),
-@clave varchar(25),
-@registrado bit output,
-@Mensaje varchar(100) output
-)
-as 
-begin
-if exists (select * FROM USUARIO where email = @email)
-raiserror('EL USUARIO YA FUE REGISTRADO, POR FAVOR INGRESE UNO NUEVO',16,1 )
-ELSE
-insert into USUARIO 
-values(@email,@clave)
-set @registrado='1'
-set @Mensaje='Correo Exitoso'
-end
+
+ go
+
+
 create table USUARIO(
 idUsuario int primary key identity,
 email varchar(80),
@@ -184,3 +171,22 @@ BEGIN
 END
 
 go
+
+-----TABLA USUARIOS-----
+go
+ALTER procedure [dbo].[spRegistrarusuario](
+@email varchar(80),
+@clave varchar(25),
+@registrado bit output,
+@Mensaje varchar(100) output
+)
+as 
+begin
+if exists (select * FROM USUARIO where email = @email)
+raiserror('EL USUARIO YA FUE REGISTRADO, POR FAVOR INGRESE UNO NUEVO',16,1 )
+ELSE
+insert into USUARIO 
+values(@email,@clave)
+set @registrado='1'
+set @Mensaje='Correo Exitoso'
+end
