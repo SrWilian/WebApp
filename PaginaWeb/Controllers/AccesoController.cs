@@ -32,10 +32,14 @@ namespace PRUEBAS_LOGIN.Controllers
         {
         string mensaje = "no debo estar vacío" +
                 "";
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             bool insertar = LogUsuario.Instancia.RegistrarUsuario(Usuario);
 
             mensaje= LogUsuario.Instancia.Mensaje(mensaje, Usuario);
-            ViewData["@Mensaje"] = mensaje;
+            ViewData["Mensaje"] = mensaje;
             
 
             try
@@ -46,13 +50,13 @@ namespace PRUEBAS_LOGIN.Controllers
                 }
                 if (insertar== false)
                 {
-                    ViewData["@Mensaje"] = mensaje;
+                    ViewData["Mensaje"] = mensaje;
                     return RedirectToAction("RegistrarUsuario", "Acceso");
                 }
 
                 else
                 {
-                    ViewData["@Mensaje"] = "Las contraseñas no coinciden";
+                    ViewData["Mensaje"] = "Las contraseñas no coinciden";
                     return View(insertar);
                 }
                 
@@ -83,7 +87,7 @@ namespace PRUEBAS_LOGIN.Controllers
                 }
                 else
                 {
-                    ViewData["@Mensaje"] = "usuario no encontrado";
+                    ViewData["Mensaje"] = "usuario no encontrado";
                     return View();
                 }
             }

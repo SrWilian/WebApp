@@ -1,10 +1,111 @@
-Create database Ecociudad
+Create database EcoMallki
 go
-use Ecociudad
+use EcoMallki
 go
 
 -----------------------CLIENTE------------
 -- TABLA CLIENTE
+
+----------------TABLA EMPLEADO------------------------
+create table empleado(
+idEmplead int  primary key identity,
+nombres varchar(100),
+apellidos varchar(100),
+email varchar(80),
+dirección varchar(200),
+celular varchar(9),
+Departamento int,
+
+)
+go
+-----COMBOBOX DEPARTAMENTO------
+create table departamento(
+idDepartamento int  primary key identity,
+NombreDepartamento varchar(50)
+)
+
+go
+-----TABLA USUARIOS-----
+ALTER procedure [dbo].[spRegistrarusuario](
+@email varchar(80),
+@clave varchar(25),
+@registrado bit output,
+@Mensaje varchar(100) output
+)
+as 
+begin
+if exists (select * FROM USUARIO where email = @email)
+raiserror('EL USUARIO YA FUE REGISTRADO, POR FAVOR INGRESE UNO NUEVO',16,1 )
+ELSE
+insert into USUARIO 
+values(@email,@clave)
+set @registrado='1'
+set @Mensaje='Correo Exitoso'
+end
+create table USUARIO(
+idUsuario int primary key identity,
+email varchar(80),
+clave varchar(25)
+)
+go
+create procedure spRegistrarusuario(
+@email varchar(80),
+@clave varchar(25),
+@registrado bit output,
+@Mensaje varchar(100) output
+)
+as 
+begin
+	if(@email = null)
+
+	begin	
+	set @Mensaje = 'Correo no válido'
+	end
+	if(not exists(select * from USUARIO where email = @email))
+		begin
+			insert into USUARIO(email,clave) values (@email,@clave)
+			set @registrado = 1
+			set @Mensaje = 'Registro exitoso'
+		end
+	else
+		begin
+			set @registrado = 0
+			set @Mensaje = 'Correo Existente'
+		end
+end
+go
+Create Procedure spValidarUsuario(
+@email varchar(80),
+@clave varchar(25)
+)
+as
+begin
+	if(exists(select * from USUARIO where email = @email and clave = @clave))
+		select idUsuario from USUARIO  where email = @email and clave = @clave
+		else
+			select '0'
+
+end
+go
+
+
+CREATE TABLE usuarios(
+	id int IDENTITY(1,1) primary key NOT NULL,
+	email varchar(100) NOT NULL,
+	password varchar(50) NOT NULL,
+	idState int NOT NULL,
+	edad int 
+ )
+
+ CREATE TABLE dbo.cstate(
+	id int IDENTITY(1,1)  primary key,
+	name varchar(50) NULL
+ )
+
+
+
+
+ 
 create table Cliente(
 	idCliente int constraint pk_idCliente primary key identity,
 	razonSocial varchar(50) not null,
@@ -83,79 +184,3 @@ BEGIN
 END
 
 go
-
-----------------TABLA EMPLEADO------------------------
-create table empleado(
-idEmplead int  primary key identity,
-nombres varchar(100),
-apellidos varchar(100),
-email varchar(80),
-dirección varchar(200),
-celular varchar(9),
-Departamento int,
-
-)
-go
------COMBOBOX DEPARTAMENTO------
-create table departamento(
-idDepartamento int  primary key identity,
-NombreDepartamento varchar(50)
-)
-
-go
------TABLA USUARIOS-----
-
-create table USUARIO(
-idUsuario int primary key identity,
-email varchar(80),
-clave varchar(25)
-)
-go
-create procedure spRegistrarusuario(
-@email varchar(80),
-@clave varchar(25),
-@registrado bit output,
-@Mensaje varchar(100) output
-)
-as 
-begin
-	if(not exists(select * from USUARIO where email = @email))
-		begin
-			insert into USUARIO(email,clave) values (@email,@clave)
-			set @registrado = 1
-			set @Mensaje = 'Registro exitoso'
-		end
-	else
-		begin
-			set @registrado = 0
-			set @Mensaje = 'Correo Existente'
-		end
-end
-go
-Create Procedure spValidarUsuario(
-@email varchar(80),
-@clave varchar(25)
-)
-as
-begin
-	if(exists(select * from USUARIO where email = @email and clave = @clave))
-		select idUsuario from USUARIO  where email = @email and clave = @clave
-		else
-			select '0'
-
-end
-go
-
-
-CREATE TABLE usuarios(
-	id int IDENTITY(1,1) primary key NOT NULL,
-	email varchar(100) NOT NULL,
-	password varchar(50) NOT NULL,
-	idState int NOT NULL,
-	edad int 
- )
-
- CREATE TABLE dbo.cstate(
-	id int IDENTITY(1,1)  primary key,
-	name varchar(50) NULL
- )

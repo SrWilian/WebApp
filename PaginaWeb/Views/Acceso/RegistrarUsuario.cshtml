@@ -1,4 +1,4 @@
-﻿
+﻿@model CapaEntidad.EntUsuario
 @{
     Layout = null;
 }
@@ -23,25 +23,36 @@
                         <img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
                     </div>
                 </div>
+
+             
+                    <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="d-flex justify-content-center form_container">
-                    <form action="@Url.Action("RegistrarUsuario","Acceso")" method="post">
+                    <form action="@Url.Action("RegistrarUsuario", "Acceso")" method="post">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">
+                            @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control input_user" } })*@
+                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="Clave" class="form-control input_user" value="" placeholder="Contraseña">
+                            @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" name="ConfirmarClave" class="form-control input_pass" value="" placeholder="Confirmar Contraseña">
+                            @*@Html.EditorFor(model => model.ConfirmarClave, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.ConfirmarClave, "", new { @class = "text-danger" })
                         </div>
 
 
@@ -57,7 +68,7 @@
                         </div>
                     </form>
                 </div>
-
+                
                 <div class="mt-4">
                     <div class="d-flex justify-content-center links">
                         Ya tienes una cuenta? <a href="@Url.Action("Login","Acceso")" class="ml-2">Inciar Sesion</a>
