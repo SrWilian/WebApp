@@ -21,7 +21,7 @@ namespace PRUEBAS_LOGIN.Controllers
         {
             return View();
         }
-        [HttpGet]
+
         public ActionResult RegistrarUsuario()
         {
             return View();

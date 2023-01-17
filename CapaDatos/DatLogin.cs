@@ -31,7 +31,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@email", Usu.Correo);
                 cmd.Parameters.AddWithValue("@clave", Usu.Clave);
                 cmd.Parameters.Add("@registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                //cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 cmd.CommandType = CommandType.StoredProcedure;
             
                 cn.Open();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -9,42 +10,55 @@ namespace CapaEntidad
 {
     public class EntUsuario
     {
-        private int idUsuario;
-        private string correo;
-        private string clave;
-        private string confirmarClave;
-        public EntUsuario()
-        {
-        }
-        public EntUsuario(int idUsuario, string correo, string clave, string confirmarClave)
-        {
-            this.idUsuario = idUsuario;
-            this.correo = correo;
-            this.clave = clave;
-            this.correo = correo;
-            this.confirmarClave = confirmarClave;
-        }
-        public int IdUsuario
-        {
-            get { return idUsuario; }
-            set { idUsuario = value; }
-        }
+        
+        [Required(ErrorMessage = "Campo obligatorio")]
 
-        public string Correo
-        {
-            get { return correo; }
-            set { correo = value; }
-        }
-        public string Clave
-        {
-            get { return clave; }
-            set { clave = value; }
+        public int IdUsuario { get; set; }
 
-        }
-        public string ConfirmarClave
-        {
-            get { return confirmarClave; }
-            set { confirmarClave = value; }
-        }
+        
+        public string Correo { get; set; }
+
+        [Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        public string Clave { get; set; }
+
+        [Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        public string ConfirmarClave { get; set; }
+        //private int idUsuario;
+        //private string correo;
+        //private string clave;
+        //private string confirmarClave;
+        //public EntUsuario()
+        //{
+        //}
+        //public EntUsuario(int idUsuario, string correo, string clave, string confirmarClave)
+        //{
+        //    this.idUsuario = idUsuario;
+        //    this.correo = correo;
+        //    this.clave = clave;
+        //    this.correo = correo;
+        //    this.confirmarClave = confirmarClave;
+        //}
+        //public int IdUsuario
+        //{
+        //    get { return idUsuario; }
+        //    set { idUsuario = value; }
+        //}
+
+        //public string Correo
+        //{
+        //    get { return correo; }
+        //    set { correo = value; }
+        //}
+        //public string Clave
+        //{
+        //    get { return clave; }
+        //    set { clave = value; }
+
+        //}
+        //public string ConfirmarClave
+        //{
+        //    get { return confirmarClave; }
+        //    set { confirmarClave = value; }
+        //}
     }
 }
