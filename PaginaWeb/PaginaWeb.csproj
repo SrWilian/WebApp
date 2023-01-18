@@ -191,6 +191,7 @@
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Acceso\RegistrarUsuario2.cshtml" />
     <Content Include="Views\Acceso\RegistrarUsuario.cshtml" />
+    <Content Include="Views\Acceso\RecuperarClave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
