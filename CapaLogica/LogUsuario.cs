@@ -19,6 +19,10 @@ namespace CapaLogica
         {
             return DatLogin.Instancia.RegistrarUsuario(Usu);
         }
+        public bool RecuperarClave(EntUsuario Usu)
+        {
+            return DatLogin.Instancia.RecuperarClave(Usu);
+        }
         public string Mensaje(string Mensaje, EntUsuario usu)
         {
             return DatLogin.Instancia.Mensaje(Mensaje, usu) ;

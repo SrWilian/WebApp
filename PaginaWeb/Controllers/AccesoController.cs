@@ -26,7 +26,55 @@ namespace PRUEBAS_LOGIN.Controllers
         {
             return View();
         }
+        public ActionResult RecuperarClave( )
+        {
+            return View();
+        }
 
+        [HttpPost]
+
+        public ActionResult RecuperarClave(EntUsuario Usuario, EntMensaje Mensaje)
+        {
+            string mensaje = "no debo estar vacío" +
+                "";
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            bool insertar = LogUsuario.Instancia.RecuperarClave(Usuario);
+
+            mensaje= LogUsuario.Instancia.Mensaje(mensaje, Usuario);
+            ViewData["Mensaje"] = mensaje;
+            
+
+            try
+            {
+                if (insertar && Usuario.Clave == Usuario.ConfirmarClave)
+                {
+                    return RedirectToAction("Login","Acceso");
+                }
+                if (insertar== false)
+                {
+                    ViewData["Mensaje"] = mensaje;
+                    return RedirectToAction("RegistrarUsuario", "Acceso");
+                }
+
+                else
+                {
+                    ViewData["Mensaje"] = "Las contraseñas no coinciden";
+                    return View(insertar);
+                }
+                
+            } 
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("RegistrarUsuario", new { mesjExceptio = ex.Message });
+            }
+            
+         
+
+        
+        }
         [HttpPost]
         public ActionResult RegistrarUsuario(EntUsuario Usuario, EntMensaje Mensaje)
         {
