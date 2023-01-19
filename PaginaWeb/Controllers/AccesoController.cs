@@ -41,10 +41,7 @@ namespace PRUEBAS_LOGIN.Controllers
         {
             string mensaje = "no debo estar vacío" +
                 "";
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            
             bool insertar = LogUsuario.Instancia.RecuperarClave(Usuario);
 
             mensaje= LogUsuario.Instancia.Mensaje(mensaje, Usuario);
@@ -126,6 +123,14 @@ namespace PRUEBAS_LOGIN.Controllers
 
         public ActionResult Login(EntUsuario Usuario)
         {
+            if (Usuario.Correo==null)
+            {
+                return View();
+            }
+            if (Usuario.Clave == null)
+            {
+                return View();
+            }
             bool insertar = LogUsuario.Instancia.LoginUsuario(Usuario);
            
             EntMensaje Mensaje = new EntMensaje();

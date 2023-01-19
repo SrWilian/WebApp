@@ -26,14 +26,16 @@
             <h1 class="title">Crear nueva contraseña</h1>
             <p class="subtitle">Introduce una nueva contraseña para tu cuenta</p>
 
-            <form action="/" class="form">
-                <label for="password" class="label">Contraseña</label>
+            <form action="@Url.Action("RecuperarClave", "Acceso")" method="post" class="form">
+                <label for="password" class="label">password</label>
                 <input type="password" id="password" placeholder="" class="input input-password">
+                
 
                 <label for="new-password" class="label">Repite Contraseña</label>
                 <input type="password" id="new-password" placeholder="" class="input input-password">
 
-                <input type="submit" value="Confirmar" class="primary-button login-button">
+
+                <input type="submit" value="Confirmar" class="primary-button login-button" >
             </form>
         </div>
     </div>
