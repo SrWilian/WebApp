@@ -7,22 +7,7 @@ html {
     background: #60a3bc !important;
 }
 
-.user_card {
-    height: 400px;
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #f39c12;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-}
+
 
 .brand_logo_container {
     position: absolute;
@@ -60,7 +45,11 @@ html {
 .login_container {
     padding: 0 2rem;
 }
-
+.form-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 400px;
+}
 .input-group-text {
     background: #c0392b !important;
     color: white !important;

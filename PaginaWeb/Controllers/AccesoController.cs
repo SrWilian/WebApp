@@ -26,6 +26,10 @@ namespace PRUEBAS_LOGIN.Controllers
         {
             return View();
         }
+        public ActionResult EnviarEmail()
+        {
+            return View();
+        }
         public ActionResult RecuperarClave( )
         {
             return View();

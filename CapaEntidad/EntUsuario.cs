@@ -10,19 +10,50 @@ namespace CapaEntidad
 {
     public class EntUsuario
     {
-        
-        [Required(ErrorMessage = "Campo obligatorio")]
 
         public int IdUsuario { get; set; }
-
-        
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Correo Electrónico..")]
         public string Correo { get; set; }
 
-        [Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        [Required]
+        [MinLength(5, ErrorMessage = "Minimo debes ingresar 5 carateres números y letras"), MaxLength(26, ErrorMessage = "Máximo es permitido 26 caracteres")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
         public string Clave { get; set; }
 
-        [Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        [Display(Name = "Confirmar Contraseña")]
+        [MinLength(5, ErrorMessage = "Minimo debes ingresar 5 carateres números y letras"), MaxLength(26, ErrorMessage = "Máximo es permitido26 caracteres")]
+        [Compare("Clave", ErrorMessage = "Las contraseñas no son iguales, Por favor ingrese la misma contraseña")]
         public string ConfirmarClave { get; set; }
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
+
+
+        //[Required(ErrorMessage = "Campo obligatorio")]
+
+        //public int IdUsuario { get; set; }
+
+
+        //public string Correo { get; set; }
+
+        //[Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        //public string Clave { get; set; }
+
+        //[Required, MinLength(5, ErrorMessage = "Minimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        //public string ConfirmarClave { get; set; }
         //private int idUsuario;
         //private string correo;
         //private string clave;
@@ -60,5 +91,7 @@ namespace CapaEntidad
         //    get { return confirmarClave; }
         //    set { confirmarClave = value; }
         //}
+    
+        */
     }
 }
