@@ -28,7 +28,7 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="d-flex justify-content-center form_container">
-                    <form class="user_card" action="@Url.Action("RegistrarUsuario", "Acceso")" method="post" >
+                    <form @*class="user_card"*@ action="@Url.Action("RegistrarUsuario", "Acceso")" method="post" >
                         <div class="input-group mb-3">
                             <div class="class=" col-md-10">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
