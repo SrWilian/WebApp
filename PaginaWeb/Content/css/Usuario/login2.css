@@ -8,8 +8,8 @@ html {
 }
 
 .user_card {
-    height: 450px;
     width: 350px;
+    height: 100vh;
     margin-top: auto;
     margin-bottom: auto;
     background: #f39c12;
@@ -25,10 +25,9 @@ html {
     display: grid;
     place-items: center;
     grid-template-rows: auto 1fr auto;
-   
 }
 
-.brand_logo_container {
+/*.brand_logo_container {
     position: absolute;
     height: 170px;
     width: 170px;
@@ -85,3 +84,4 @@ html {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #c0392b !important;
 }
+*/

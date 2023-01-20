@@ -6,7 +6,97 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/Login3.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="user_card">
+        <div class="brand_logo_container">
+            <img src="~/Models/Logos/logo-1.png" class="brand_logo" alt="Logo" />
+        </div>
+        <div class="form-container">
+
+
+
+
+            <div class="form">
+
+                <form action="@Url.Action("Login","Acceso")" method="post">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="">
+                        <div>
+                            <label for="email" class="label">Direción de correo </label>
+                        </div>
+
+
+                        <input type="text" name="Correo" class="input input_user" id="Correo" value="" placeholder="Correo@ejemplo.com">
+                        <div>
+                            @Html.ValidationMessage("Correo", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <label for="password" class="label">Contraseña</label>
+                        </div>
+                        <input type="password" name="Clave" class="input input_password" id="password" value="" placeholder="Contraseña">
+                        <div>
+                            @Html.ValidationMessage("Clave", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+
+                    <div class="button-submit">
+                        <button type="submit" name="button" class="primary-button login-button" login>Iniciar Sesion</button>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-4">
+                <div class="signup-button">
+                    <a href="@Url.Action("EnviarEmail","Acceso")" class="">Recuperar contraseña</a>
+                </div>
+                <div class="secondary-button n">
+                    <a href="@Url.Action("RegistrarUsuario","Acceso")" class=""> Registrate</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+
+@*@if (ViewData["Mensaje"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["Mensaje"]
+        </div>
+    }*@
+
+
+<!--<html>
 <head>
     <title>My Awesome Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -33,17 +123,17 @@
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">
-                            @*@Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })*@
-                            @Html.ValidationMessage("Correo", new { @class = "text-danger" })
-                        </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" name="Clave" class="form-control input_pass" value="" placeholder="Contraseña">
-                            @*@Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })*@
-                            @Html.ValidationMessage("Clave", new { @class = "text-danger" })
+                            <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">-->
+@*@Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })*@
+<!--@Html.ValidationMessage("Correo", new { @class = "text-danger" })
+</div>
+<div class="input-group mb-2">
+    <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-key"></i></span>
+    </div>
+    <input type="password" name="Clave" class="form-control input_pass" value="" placeholder="Contraseña">-->
+@*@Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })*@
+<!--@Html.ValidationMessage("Clave", new { @class = "text-danger" })
                         </div>
 
                         @if (ViewData["Mensaje"] != null)
@@ -75,7 +165,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
-</html>
+</html>-->
 
 
 

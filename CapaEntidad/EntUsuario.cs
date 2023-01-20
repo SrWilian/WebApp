@@ -14,7 +14,8 @@ namespace CapaEntidad
         public int IdUsuario { get; set; }
         [Required]
         [EmailAddress]
-        [Display(Name = "Correo Electrónico..")]
+       // [Display(Name = "Correo Electrónico..")]
+
         public string Correo { get; set; }
 
         [Required]
