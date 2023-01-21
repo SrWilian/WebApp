@@ -8,9 +8,8 @@ html {
     font-family: 'Quicksand' sans-serif;
     display: flex;
     justify-content: center;
-
-    
 }
+
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -21,6 +20,7 @@ html {
     --md: 16px;
     --lg: 18px;
 }
+
 .user_card {
     width: 300px;
     height: 460px;
@@ -28,7 +28,6 @@ html {
     margin-bottom: auto;
     background: #f39c12;
     position: relative;
-  
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -37,39 +36,43 @@ html {
     display: grid;
     place-items: center;
 }
+
 .form-container {
     display: grid;
     width: 100%;
     grid-template-rows: auto 1fr auto;
     margin-top: 80px;
 }
-.label{
+
+.label {
     font-size: var(--md);
-    font-weight:bold;
-    margin-bottom:4px;
+    font-weight: bold;
+    margin-bottom: 4px;
 }
-.input{
-    background-color:var(--text-input-field);
+
+.input {
+    background-color: var(--text-input-field);
     border: none;
     border-radius: 4px;
-    height:40px;
-    width: 95%;
-    font-size:var(--md);
-    padding:6px;
+    height: 40px;
+    width: 100%;
+    font-size: var(--md);
+    padding: 6px;
 }
+
 .form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .button-submit {
     margin-block-start: 8px;
     margin-bottom: auto;
-
-    
     display: flex;
     justify-content: center;
 }
+
 .brand_logo_container {
     position: absolute;
     height: 170px;
@@ -87,44 +90,62 @@ html {
     border-radius: 50%;
     border: 2px solid white;
 }
+
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #c0392b !important;
 }
-.input-group-text {
-    background: #c0392b !important;
-    color: white !important;
-    border: 0 !important;
-    border-radius: 0.25rem 0 0 0.25rem !important;
-}
+
 
 .input_user,
 .input_pass:focus {
     box-shadow: none !important;
     outline: 0px !important;
 }
-.primary-button{
+
+.primary-button {
     background-color: var(--hospital-green);
     border-radius: 6px;
     border: none;
-    color:darkmagenta;
+    color: darkmagenta;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 30px;
+    margin-top: 1.5rem;
+}
+.container-top {
+    margin-top: 1rem ;
+    color: var(--hospital-green) !important;
+}
+.signup-button {
+    font-size: var(--sm);
+    text-align: center;
+    
     cursor: pointer;
     font-size: var(--md);
     font-weight: bold;
     height: 30px;
 }
-.signup-button{
-    color:var(--hospital-green);
-    font-size:var(--sm);
-    text-align:center;
-    margin-bottom:30px;
 
-}
-secondary-button {
-    color: var(--hospital-green);
+.secondary-button {
     font-size: var(--sm);
     text-align: center;
-    margin-bottom: 30px;
+    
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 30px;
+    background-color: var(--hospital-green);
+    border-radius: 6px;
+    border: none;
+    color: darkmagenta;
+    margin-top: 1rem;
 }
+/*a.input-requeset:hover {
+    box-shadow: none !important;
+    outline: 0px !important;
+    color: var(--hospital-green) !important;
+}*/
 /*
 .form_container {
     margin-top: 100px;
@@ -148,6 +169,12 @@ secondary-button {
     display: grid;
     grid-template-rows: auto 1fr auto;
     width: 400px;
+}
+    .input-group-text {
+    background: #c0392b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
 }
 
 

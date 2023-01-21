@@ -134,7 +134,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\css\Usuario\login2.css" />
+    <Content Include="Content\css\login\login.css" />
+    <Content Include="Content\css\Usuario\RegistrarUsuario.css" />
     <Content Include="Content\css\Usuario\MensajeRecuperacion.css" />
     <Content Include="Content\css\Usuario\RecuperarCotraseña.css" />
     <Compile Include="Controllers\AccesoController.cs" />
@@ -151,9 +152,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\Login.css" />
-    <Content Include="Content\css\Login3.css" />
-    <Content Include="Content\css\Usuario\Registro.css" />
+    <Content Include="Content\css\LoginNEw.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

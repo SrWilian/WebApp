@@ -6,13 +6,121 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/login/login.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="~/Content/css/Usuario/RegistrarUsuario.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="user_card">
+        <div class="brand_logo_container">
+            <img src="~/Models/Logos/logo-1.png" class="brand_logo" alt="Logo" />
+        </div>
+        <div class="form-container">
+            <div class="form">
+
+
+                <form action="@Url.Action("Login","Acceso")" method="post">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="">
+                        <div>
+                            <label for="email" class="label">Direción de correo </label>
+                        </div>
+
+
+                        <input type="text" name="Correo" class="input input_user" id="Correo" value="" placeholder="Correo@ejemplo.com">
+                        <div>
+                            @*@Html.ValidationMessage("Correo", new { @class = "text-danger" })*@
+                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <label for="password" class="label">Contraseña</label>
+                        </div>
+                        <input type="password" name="Clave" class="input input_password" id="password" value="" placeholder="*********">
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                            @*@Html.ValidationMessage("Clave", new { @class = "text-danger" })*@
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <label for="password" class="label">Repetir Contraseña</label>
+                        </div>
+                        <div>
+                            <input type="password" name="Clave" class="input input_password" id="password" value="" placeholder="*********">
+
+                        </div>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                            @*@Html.ValidationMessage("Clave", new { @class = "text-danger" })*@
+                        </div>
+
+                    </div>
+
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit" name="button" class="btn login_btn">Registrarse</button>
+                        </div>
+                    </form>
+            </div>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Ya tienes una cuenta? <a href="@Url.Action("Login","Acceso")" class="ml-2">Inciar Sesion</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+@*<div class="container-top">
+        <div class="signup-button">
+            <a href="@Url.Action("EnviarEmail","Acceso") " style="color: aquamarine">Recuperar contraseña</a>
+        </div>
+        <div class="secondary-button">
+            <a href="@Url.Action("RegistrarUsuario","Acceso")" style="color: blueviolet"> Registrate</a>
+
+        </div>
+
+    </div>*@
+
+
+
+<!--<head>
     <title>My Awesome Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="~/Content/css/Login2.css" rel="stylesheet" />
+    <link href="~/Content/css/Usuario/RegistrarUsuario.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container h-100">
@@ -20,7 +128,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        @*<img src="~/Models/Logos/logo-1.png" class="brand_logo" alt="Logo">*@
+                        <img src="~/Models/Logos/logo-1.png" class="brand_logo" alt="Logo">
                     </div>
                 </div>
 
@@ -28,40 +136,42 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="d-flex justify-content-center form_container">
-                    <form @*class="user_card"*@ action="@Url.Action("RegistrarUsuario", "Acceso")" method="post" >
-                        <div class="input-group mb-3">
-                            <div class="class=" col-md-10">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">
-                            @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control input_user" } })*@
-                            <div>
-                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
-                            </div>
-                            
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" name="Clave" class="form-control input_user" value="" placeholder="Contraseña">
-                            @*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <div>
-                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
-                        </div>
-                            
+                    <form-->
+@*class="user_card"*@
+<!--action="@Url.Action("RegistrarUsuario", "Acceso")" method="post">
+<div class="input-group mb-3">
+    <div class="class=" col-md-10">
+        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+    </div>
+    <input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">-->
+@*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control input_user" } })*@
+<!--<div>
+        @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+    </div>
 
-                        </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-key"></i></span>
+    </div>
+    <input type="password" name="Clave" class="form-control input_user" value="" placeholder="Contraseña">-->
+@*@Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })*@
+<!--<div>
+        @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+    </div>
+
+
+</div>
+<div class="input-group mb-2">
+    <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-key"></i></span>
+    </div>
+    <input type="password" name="ConfirmarClave" class="form-control input_pass" value="" placeholder="Confirmar Contraseña">-->
+@*@Html.EditorFor(model => model.ConfirmarClave, new { htmlAttributes = new { @class = "form-control" } })*@
+<!--<div>
+                                @Html.ValidationMessageFor(model => model.ConfirmarClave, "", new { @class = "text-danger" })
                             </div>
-                            <input type="password" name="ConfirmarClave" class="form-control input_pass" value="" placeholder="Confirmar Contraseña">
-                            @*@Html.EditorFor(model => model.ConfirmarClave, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <div>
-                            @Html.ValidationMessageFor(model => model.ConfirmarClave, "", new { @class = "text-danger" })
-                        </div>
-                           
+
                         </div>
 
 
@@ -90,4 +200,4 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
-</html>
+</html>-->
