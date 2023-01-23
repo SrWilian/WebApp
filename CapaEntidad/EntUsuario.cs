@@ -12,21 +12,21 @@ namespace CapaEntidad
     {
 
         public int IdUsuario { get; set; }
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Corréo no válido")]
+        [EmailAddress(ErrorMessage = "Corréo no válido")]
        // [Display(Name = "Correo Electrónico..")]
 
         public string Correo { get; set; }
 
-        [Required]
-        [MinLength(5, ErrorMessage = "Minimo debes ingresar 5 carateres números y letras"), MaxLength(26, ErrorMessage = "Máximo es permitido 26 caracteres")]
+        [Required(ErrorMessage = "Contraseña no válida")]
+        [MinLength(5, ErrorMessage = "Mínimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Clave { get; set; }
 
         [Display(Name = "Confirmar Contraseña")]
-        [MinLength(5, ErrorMessage = "Minimo debes ingresar 5 carateres números y letras"), MaxLength(26, ErrorMessage = "Máximo es permitido26 caracteres")]
-        [Compare("Clave", ErrorMessage = "Las contraseñas no son iguales, Por favor ingrese la misma contraseña")]
+        [MinLength(5, ErrorMessage = "Mínimo 5 carateres"), MaxLength(26, ErrorMessage = "Máximo 26 caracteres")]
+        [Compare("Clave", ErrorMessage = "Contraseñas diferentes, ingrese la misma contraseña")]
         public string ConfirmarClave { get; set; }
 
 
