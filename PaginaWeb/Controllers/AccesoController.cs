@@ -34,6 +34,7 @@ namespace PRUEBAS_LOGIN.Controllers
         {
             return View();
         }
+         
 
         [HttpPost]
 

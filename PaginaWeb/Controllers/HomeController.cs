@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using PaginaWeb.Permisos;
 namespace PaginaWeb.Controllers
 {
-    [ValidarSesion]
+    //[ValidarSesion]
     public class HomeController : Controller
     {
         public ActionResult Index()
