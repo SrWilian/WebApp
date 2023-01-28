@@ -1,11 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - ECOMALKI</title>
+    @*@Styles.Render("~/Content/css")*@
+
+    @Styles.Render("~/Content/css/nav/nav.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -13,10 +17,10 @@
     <nav>
 
         <img src="~/Models/Icons/icon_menu.svg " alt="menu" class="menu" />
-        Menú
-        <div class="navbar-left-1">
-            <img src="~/Models/Logos/logo-icon-render.jpg" alt="logo" class="logo-1" />
-            <ul class="nav navbar-nav">
+     
+        <div class="navbar-left">
+            <img src="~/Models/Logos/logo-icon-render.jpg" alt="logo" class="logo" />
+            <ul @*class="nav navbar-nav"*@>
 
                 <li>@Html.ActionLink("PERSONAL", "RegistrarUsuario", "Acceso")</li>
                 <li>@Html.ActionLink("INICIO", "Index", "Home")</li>
@@ -27,7 +31,7 @@
 
             </ul>
         </div>
-        <div class="navbar-right-1">
+        <div class="navbar-right">
             <ul>
                 <li> name@gmail.com</li>
               

@@ -138,6 +138,7 @@
     <Content Include="Content\css\Usuario\RegistrarUsuario.css" />
     <Content Include="Content\css\Usuario\MensajeRecuperacion.css" />
     <Content Include="Content\css\Usuario\RecuperarCotraseña.css" />
+    <Content Include="Content\css\nav\nav.css" />
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenedorClienteController.cs" />
@@ -166,6 +167,7 @@
     <Content Include="Models\Icons\icon_shopping_cart.svg" />
     <Content Include="Models\Icons\icon_shopping_cart_notification.svg" />
     <Content Include="Models\Logos\logo-1.png" />
+    <Content Include="Models\Logos\logo-icon-render.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

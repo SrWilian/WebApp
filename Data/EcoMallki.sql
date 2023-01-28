@@ -26,8 +26,6 @@ NombreDepartamento varchar(50)
 
 go
 
- go
-
 
 create table USUARIO(
 idUsuario int primary key identity,
