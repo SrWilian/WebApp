@@ -13,7 +13,7 @@ namespace PaginaWeb.ApiRUCDNI
         
         public dynamic Get(string url)
         {
-            HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url); //
             myWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0";
             //myWebRequest.CookieContainer = myCookie;
             myWebRequest.Credentials = CredentialCache.DefaultCredentials;
@@ -28,10 +28,5 @@ namespace PaginaWeb.ApiRUCDNI
 
             return data;
         }
-
-
-
-        
-
     }
 }
