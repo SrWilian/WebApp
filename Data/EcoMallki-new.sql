@@ -101,13 +101,33 @@ end
 
 
 
+CREATE TABLE Clientes
+(
+	idCliente int identity primary key,
+	RucDni varchar(11) NOT NULL,
+	tipoDoc int NULL,
+	Razon_Social varchar(200) NULL,
+	Direccion varchar(200) NULL,
+	Distrito varchar(50) NULL,
+	Ubigeo varchar(12) NULL,
+	Telefono varchar(50) NULL,
+	Correo varchar(100) NULL,
+	Record decimal(18, 4) NULL
+)
 
+--drop table didentidad
+create TABLE DIdentidad
+(
+	idDIdentidad int identity primary key,
+	Codigo int NOT NULL,
+	Nombre varchar(20) NULL,
+	Descripcion varchar(200) NULL
+)
 
+insert into DIdentidad VALUES(1,'DNI','DOCUMENTO NACIONAL DE IDENTIDAD')
+insert into DIdentidad VALUES(6,'RUC','REGISTRO UNICO DEL CONTRIBUYENTE')
 
-
-
-
-
+SELECT * FROM DIdentidad
 
 
 
