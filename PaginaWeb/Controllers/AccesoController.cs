@@ -10,7 +10,6 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Web.Mvc;
 using System.Web.Services.Description;
-using ArquitecturaExternaConsultaIdentificacion.ApiRUCDNI;
 
 namespace PRUEBAS_LOGIN.Controllers
 {
@@ -25,7 +24,6 @@ namespace PRUEBAS_LOGIN.Controllers
 
         public ActionResult RegistrarUsuario()
         {
-            
             return View();
         }
         public ActionResult EnviarEmail()
