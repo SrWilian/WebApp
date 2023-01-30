@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntCliente.cs" />
+    <Compile Include="EntClientes.cs" />
     <Compile Include="EntMensaje.cs" />
     <Compile Include="EntUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

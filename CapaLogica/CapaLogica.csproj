@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogCliente.cs" />
+    <Compile Include="LogClientes.cs" />
     <Compile Include="LogUsuario.cs" />
     <Compile Include="LogUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
