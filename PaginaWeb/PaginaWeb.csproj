@@ -134,12 +134,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\Clientes\AgregarCliente.css" />
     <Content Include="Content\css\login\login.css" />
     <Content Include="Content\css\Usuario\RegistrarUsuario.css" />
     <Content Include="Content\css\Usuario\MensajeRecuperacion.css" />
     <Content Include="Content\css\Usuario\RecuperarCotraseña.css" />
     <Content Include="Content\css\nav\nav.css" />
     <Compile Include="Controllers\AccesoController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenedorClienteController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
