@@ -2,16 +2,18 @@
 
 @{
     ViewBag.Title = "AgregarCliente";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>AgregarCliente</h2>
 
 
-@using (Html.BeginForm()) 
-{
+
+
+    @using (Html.BeginForm())
+    {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>EntClientes</h4>
         <hr />
@@ -118,10 +120,11 @@
             </div>
         </div>
     </div>
+
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Buscar Ruc/DNI", "ConsultarApi")
 </div>
 
 @section Scripts {

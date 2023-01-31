@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 
-namespace PaginaWeb.ApiRUCDNI
+namespace WebApp.ApiRUCDNI
 {
     public class ApisPeru
     {
