@@ -30,9 +30,9 @@ namespace PaginaWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult AgregarCliente(EntCliente Cli)
+        public ActionResult AgregarCliente(EntClientes Cli)
         {
-            bool insertar = LogCliente.Instancia.AgregarCliente(Cli);
+            bool insertar = LogClientes.Instancia.AgregarCliente(Cli);
             try
             {
                 if (insertar)

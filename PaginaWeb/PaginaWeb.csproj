@@ -210,6 +210,7 @@
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Acceso\RegistrarUsuario.cshtml" />
     <Content Include="Views\Clientes\ListarCliente.cshtml" />
+    <Content Include="Views\Clientes\AgregarCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
