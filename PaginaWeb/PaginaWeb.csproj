@@ -141,6 +141,7 @@
     <Content Include="Content\css\Usuario\RecuperarCotraseña.css" />
     <Content Include="Content\css\nav\nav.css" />
     <Compile Include="Controllers\AccesoController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenedorClienteController.cs" />
@@ -208,6 +209,7 @@
     <Content Include="Views\Acceso\EnviarEmail.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Acceso\RegistrarUsuario.cshtml" />
+    <Content Include="Views\Clientes\ListarCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
