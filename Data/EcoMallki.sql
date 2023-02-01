@@ -73,39 +73,86 @@ begin
 end
 
 go
-
-
-
-Create or alter procedure sp (
-@clave varchar(25),
-@registrado bit output,
-@Mensaje varchar(100) output
+CREATE TABLE Clientes
+(
+	IdCliente int identity primary key,
+	RucDni varchar(11) NOT NULL,
+	TipoDoc int NULL,
+	RazonSocial varchar(200) NULL,
+	Direccion varchar(200) NULL,
+	Region varchar(50) NULL,
+	Provincia varchar(50) NULL,
+	Distrito varchar(50) NULL,
+	Ubigeo varchar(12) NULL,
+	Telefono varchar(50) NULL,
+	Correo varchar(100) NULL,
+	Record decimal(18, 4) NULL
 )
-as 
+go
+
+
+
+create procedure RegistrarClientes
+(
+@rucDni varchar(11),
+@tipoDoc int,
+@razonSocial varchar(200),
+@direccion varchar(100),
+@region varchar(50),
+@provincia varchar(50),
+@distrito varchar(8),
+@ubigeo varchar(50),
+@telefono varchar(50),
+@correo varchar(50),
+@record decimal
+)
+as
+BEGIN
+	insert into Clientes(RucDni, tipoDoc, RazonSocial, Direccion, Region, Provincia, Distrito, Ubigeo, Telefono, Correo, Record )
+	 values (@rucDni, @tipoDoc, @razonSocial, @direccion, @region, @Provincia, @distrito, @ubigeo, @telefono, @correo, @record);
+END
+
+go
+create PROCEDURE EditarClientes
+(
+@idCliente int,
+@rucDni varchar(11),
+@tipoDoc int,
+@razonSocial varchar(200),
+@direccion varchar(100),
+@region varchar(50),
+@provincia varchar(50),
+@distrito varchar(8),
+@ubigeo varchar(50),
+@telefono varchar(50),
+@correo varchar(50),
+@record decimal
+)
+	as
+	begin
+	update Clientes set 
+	--idCliente = @idCliente,
+	RucDni = @rucDni,
+	TipoDoc = @tipoDoc,
+	RazonSocial = @razonSocial,
+	Direccion = @direccion,
+	Region = @region,
+	Provincia = @provincia,
+	Distrito = @distrito,
+	Ubigeo = @ubigeo,
+	Telefono = @telefono,
+	Correo = @correo,
+	Record = @record
+	where idCliente = @idCliente
+	end
+
+	go
+create or alter PROCEDURE ListarClientes
+
+as
 begin
-	if(not exists(select * from USUARIO where clave = @clave))
-		begin
-			insert into USUARIO(clave) values (@clave)
-			set @registrado = 1
-			set @Mensaje = 'Cambio exitoso'
-		end
-	else
-		begin
-			set @registrado = 0
-			set @Mensaje = 'Clave existente'
-		end
+	Select * from Clientes
 end
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -236,3 +283,29 @@ values(@email,@clave)
 set @registrado='1'
 set @Mensaje='Correo Exitoso'
 end
+
+
+
+Create or alter procedure sp (
+@clave varchar(25),
+@registrado bit output,
+@Mensaje varchar(100) output
+)
+as 
+begin
+	if(not exists(select * from USUARIO where clave = @clave))
+		begin
+			insert into USUARIO(clave) values (@clave)
+			set @registrado = 1
+			set @Mensaje = 'Cambio exitoso'
+		end
+	else
+		begin
+			set @registrado = 0
+			set @Mensaje = 'Clave existente'
+		end
+end
+
+
+
+

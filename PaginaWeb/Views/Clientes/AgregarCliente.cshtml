@@ -1,132 +1,109 @@
 ﻿@model CapaEntidad.EntClientes
-
-@{
-    ViewBag.Title = "AgregarCliente";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h2>AgregarCliente</h2>
-
-
-
-
-    @using (Html.BeginForm())
-    {
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>EntClientes</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RucDni, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RucDni, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RucDni, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TipoDoc, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoDoc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TipoDoc, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RazonSocial, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RazonSocial, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RazonSocial, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Region, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Distrito, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Distrito, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Distrito, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ubigeo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ubigeo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ubigeo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Record, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Record, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Record, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link href="~/Content/css/Clientes/AgregarCliente.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="cliente">
+        <div class="form-container">
+            <form class="form" action="@Url.Action("AgregarCliente","cliente")" method="post">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class=" form-group">
+                    <label for="document" class="label-document">  Documento  </label>
+                    <div>
+                        <input type="text" name="document" class="input input-document">
+                        @Html.ValidationMessageFor(model => model.RucDni, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="razon-social" class="label-razon-social">  Razón social  </label>
+                    <div>
+                        <input type="text" name="tipe-document" class="input input-tipe-document">
+                        @Html.ValidationMessageFor(model => model.TipoDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="address" class="label-address">  Dirección  </label>
+                    <div>
+                        <input type="text" name="address" class="input input-address">
+                        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="region" class="label-region">  Región  </label>
+                    <div>
+                        <input type="text" name="region" class="input input-region">
+                        @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="province" class="label-province">  Provincia  </label>
+                    <div>
+                        <input type="text" name="province" class="input input-province">
+                        @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="district" class="label-district">  Distrito  </label>
+                    <div>
+                        <input type="text" name="district" class="input input-district">
+                        @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="ubigeo" class="label-ubigeo">  Ubigéo  </label>
+                    <div>
+                        <input type="text" name="ubigeo" class="input input-ubigeo">
+                        @Html.ValidationMessageFor(model => model.Ubigeo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="telefono" class="label-telefono">  Teléfono  </label>
+                    <div>
+                        <input type="text" name="telefono" class="input input-telefono">
+                        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="email" class="label-email">  Email  </label>
+                    <div>
+                        <input type="text" name="email" class="input input-email">
+                        @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label for="<record" class="label-client">  Record </label>
+                    <div>
+                        <input type="text" name="record" class="input input-record">
+                        @Html.ValidationMessageFor(model => model.Record, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <button type="submit" name="button" class="btn save_btn">Guardar</button>
+                </div>
+      
+        </form>
     </div>
+    </div>
+</body>
+</html>
 
-}
 
-<div>
-    @Html.ActionLink("Buscar Ruc/DNI", "ConsultarApi")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+
+
+
+
+
+
+
+
+
+
+
