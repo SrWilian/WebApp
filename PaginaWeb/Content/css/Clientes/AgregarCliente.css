@@ -27,9 +27,9 @@
     /*  background: #f5edea;*/
     padding: 10px;
     justify-content: center;
-    display: grid;
+    display:flex;
     align-items: center;
-    position: absolute;
+/*    position: absolute;*/
     /*    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -39,19 +39,20 @@
 .form-container {
     display: grid;
     width: 500px;
-   
     height: 80%;
     background: #b6ff00;
     display: grid;
     align-items: flex-start;
     justify-content: center;
+    grid-template-rows: auto 1fr auto;
 }
+
 
 .form {
     width: 500px;
     display: grid;
     align-items: center;
-    position: absolute;
+  
    
 }
 .form group-long{
@@ -61,7 +62,46 @@
     display: flex;
     justify-content: space-between;
 }
-     login_container {
-        display: grid;
-        align-self: flex-end;
-    }
+.label {
+    font-size: var(--md);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.login_container {
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--very-light-pink);
+  /*  border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;*/
+}
+.form-group{
+    margin-top:10px;
+}
+.input {
+    font-size: 1.125rem;
+    padding: 0.25rem;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: #000000;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    cursor: text;
+    background-color: var(--text-input-field);
+    margin: 0cm;
+    border-width: 2px;
+    border-style: inset;
+    border-image: initial;
+    text-indent: 0px;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    width: 90%;
+    font-size: var(--md);
+}
