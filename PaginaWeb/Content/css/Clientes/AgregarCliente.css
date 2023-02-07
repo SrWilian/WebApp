@@ -38,10 +38,30 @@
 
 .form-container {
     display: grid;
-    width: 400px;
-    margin-top: 80px;
+    width: 500px;
+   
     height: 80%;
     background: #b6ff00;
     display: grid;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
 }
+
+.form {
+    width: 500px;
+    display: grid;
+    align-items: center;
+    position: absolute;
+   
+}
+.form group-long{
+
+}
+.group-grand {
+    display: flex;
+    justify-content: space-between;
+}
+     login_container {
+        display: grid;
+        align-self: flex-end;
+    }
