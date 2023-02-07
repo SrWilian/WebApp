@@ -147,7 +147,7 @@ create PROCEDURE EditarClientes
 	end
 
 	go
-create or alter PROCEDURE ListarClientes
+create or alter PROCEDURE ListarCliente
 
 as
 begin
