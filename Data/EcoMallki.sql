@@ -73,26 +73,11 @@ begin
 end
 
 go
-CREATE TABLE Clientes
-(
-	IdCliente int identity primary key,
-	RucDni varchar(11) NOT NULL,
-	TipoDoc int NULL,
-	RazonSocial varchar(200) NULL,
-	Direccion varchar(200) NULL,
-	Region varchar(50) NULL,
-	Provincia varchar(50) NULL,
-	Distrito varchar(50) NULL,
-	Ubigeo varchar(12) NULL,
-	Telefono varchar(50) NULL,
-	Correo varchar(100) NULL,
-	Record decimal(18, 4) NULL
-)
-go
+
 
 --COMBOBOX CLIENTES
-create table provicia(
-idProvincia int primary key,
+create table provincia(
+idProvincia int  primary key,
 desProvincia varchar(50),
 
 )
@@ -101,11 +86,28 @@ create or alter procedure spListarProvincia
 
 as
 begin
-	Select * from provicia
+	Select * from provincia
 end
 
 go
+CREATE  TABLE Clientes
+(
+	IdCliente int identity primary key,
+	RucDni varchar(11) NOT NULL,
+	TipoDoc int NULL,
+	RazonSocial varchar(200) NULL,
+	Direccion varchar(200) NULL,
+	Region varchar(50) NULL,
+	idProvincia int,
+	Distrito varchar(50) NULL,
+	Ubigeo varchar(12) NULL,
+	Telefono varchar(50) NULL,
+	Correo varchar(100) NULL,
+	Record decimal(18, 4) NULL
 
+	constraint FK_idProvincia foreign key(idProvincia)references provincia(idProvincia),
+)
+go
 create procedure RegistrarClientes
 (
 @rucDni varchar(11),

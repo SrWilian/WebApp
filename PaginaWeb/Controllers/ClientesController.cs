@@ -30,7 +30,7 @@ namespace PaginaWeb.Controllers
 
             List<EntProvincia> listaProvincia = LogProvincia.Instancia.ListarProvincia();
             var lsProvincia = new SelectList(listaProvincia, "idProvincia", "desProvincia");
-            ViewBag.listaCiudad = lsProvincia;
+            ViewBag.listaProvincia = lsProvincia;
             return View();
         }
 

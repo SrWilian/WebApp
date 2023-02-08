@@ -10,7 +10,7 @@ namespace CapaEntidad
     {
         public int idProvincia { get; set; }
         public String desProvincia { get; set; }
-        public Boolean estProvincia { get; set; }
+        //public Boolean estProvincia { get; set; }
 
     }
 }

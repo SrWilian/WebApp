@@ -50,10 +50,10 @@
                         <div class=" form-group">
                             <label for="province" class="label-province">  Provincia  </label>
                             <div>
-                                
-                                @Html.DropDownList("cboProvincia", (SelectList)ViewBag.listaProvincia, new { @class = "form-control", required = "required" })
-                                @*<input type="text" name="province" class="input input-province">*@
-                       
+                                @Html.DropDownList("cboProvincia", (SelectList)ViewBag.listaProvicia)
+                                @* @Html.DropDownList("cboProvincia", (SelectList)ViewBag.listaProvincia, new { @class = "form-control", required = "required" })
+        <input type="text" name="province" class="input input-province">*@
+                                @Html.ValidationMessageFor(model => model.IdProvincia, "", new { @class = "text-danger" })
                             </div>
                         </div>
 

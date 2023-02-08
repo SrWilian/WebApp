@@ -70,28 +70,29 @@ namespace CapaDatos
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    EntClientes Client = new EntClientes();
                     EntProvincia Prov = new EntProvincia();
-                    Prov.idProvincia=  Convert.ToInt32(dr["IdProvincia"]);
+                 
+                    Client.TipoDoc = Convert.ToInt32(dr["TipoDoc"]);
+                  
+                   
+
+                    Client.IdCliente = Convert.ToInt32(dr["idCliente"]);
+                    Client.RucDni = dr["RucDni"].ToString();
+                    Client.TipoDoc = Convert.ToInt32(dr["TipoDoc"]);
+                    Client.RazonSocial = dr["RazonSocial"].ToString();
+                    Client.Direccion = dr["Direccion"].ToString();
+                    Client.Region = dr["Region"].ToString();
+                    Prov.idProvincia=  Convert.ToInt32(dr["idProvincia"]);
                     Prov.desProvincia = dr["desProvincia"].ToString();
-                    EntClientes Client = new EntClientes
 
-                    {
-
-                        IdCliente = Convert.ToInt32(dr["idCliente"]),
-                        RucDni = dr["RucDni"].ToString(),
-                        TipoDoc = Convert.ToInt32(dr["TipoDoc"]),
-                        RazonSocial = dr["RazonSocial"].ToString(),
-                        Direccion = dr["Direccion"].ToString(),
-                        Region = dr["Region"].ToString(),
-                        IdProvincia =Prov,
+                    Client.IdProvincia =Prov;
                     
-                        Distrito = dr["Distrito"].ToString(),
-                        Ubigeo = dr["Ubigeo"].ToString(),
-                        Telefono = dr["Telefono"].ToString(),
-                        Correo = dr["correo"].ToString(),
-                        Record = Convert.ToInt32(dr["Record"]),
-
-                    };
+                    Client.Distrito = dr["Distrito"].ToString();
+                    Client.Ubigeo = dr["Ubigeo"].ToString();
+                    Client.Telefono = dr["Telefono"].ToString();
+                    Client.Correo = dr["correo"].ToString();
+                    Client.Record = Convert.ToInt32(dr["Record"]);
                     lista.Add(Client);
                 }
 
@@ -122,7 +123,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@razonSocial", Client.RazonSocial);
                 cmd.Parameters.AddWithValue("@direccion", Client.Direccion);
                 cmd.Parameters.AddWithValue("@region", Client.Region);
-                cmd.Parameters.AddWithValue("@provincia", Client.IdProvincia.idProvincia);
+                cmd.Parameters.AddWithValue("@idprovincia", Client.IdProvincia.idProvincia);
                 cmd.Parameters.AddWithValue("@distrito", Client.Distrito);
                 cmd.Parameters.AddWithValue("@ubigeo", Client.Ubigeo);
                 cmd.Parameters.AddWithValue("@telefono", Client.Telefono);
