@@ -44,7 +44,10 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DatCliente.cs" />
     <Compile Include="DatClientes.cs" />
+    <Compile Include="DatDistrito.cs" />
     <Compile Include="DatLogin.cs" />
+    <Compile Include="DatProvincia.cs" />
+    <Compile Include="DatRegion.cs" />
     <Compile Include="DatUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

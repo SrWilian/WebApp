@@ -16,7 +16,7 @@ namespace PaginaWeb.Controllers
 
             return View();
         }
-
+        [HttpGet]
         public ActionResult ListarCliente()
         {
 
@@ -28,16 +28,20 @@ namespace PaginaWeb.Controllers
         public ActionResult AgregarCliente()
         {
 
-
+            List<EntProvincia> listaProvincia = LogProvincia.Instancia.ListarProvincia();
+            var lsProvincia = new SelectList(listaProvincia, "idProvincia", "desProvincia");
+            ViewBag.listaCiudad = lsProvincia;
             return View();
         }
 
         [HttpPost]
-        public ActionResult AgregarCliente(EntClientes Cli)
+        public ActionResult AgregarCliente(EntClientes Cli, FormCollection frm)
         {
             bool insertar = LogClientes.Instancia.AgregarCliente(Cli);
             try
             {
+                Cli.IdProvincia = new EntProvincia();
+                Cli.IdProvincia.idProvincia = Convert.ToInt32(frm["cboProvincia"]);
                 if (insertar)
                 {
                     return RedirectToAction("ListarCliente");

@@ -32,7 +32,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@razonSocial", Client.RazonSocial);
                 cmd.Parameters.AddWithValue("@direccion", Client.Direccion);
                 cmd.Parameters.AddWithValue("@region", Client.Region);
-                cmd.Parameters.AddWithValue("@provincia", Client.Provincia);
+                cmd.Parameters.AddWithValue("@provincia", Client.IdProvincia);
                 cmd.Parameters.AddWithValue("@distrito", Client.Distrito);
                 cmd.Parameters.AddWithValue("@ubigeo", Client.Ubigeo);
                 cmd.Parameters.AddWithValue("@telefono", Client.Telefono);
@@ -70,14 +70,21 @@ namespace CapaDatos
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    EntProvincia Prov = new EntProvincia();
+                    Prov.idProvincia=  Convert.ToInt32(dr["IdProvincia"]);
+                    Prov.desProvincia = dr["desProvincia"].ToString();
                     EntClientes Client = new EntClientes
+
                     {
+
                         IdCliente = Convert.ToInt32(dr["idCliente"]),
                         RucDni = dr["RucDni"].ToString(),
                         TipoDoc = Convert.ToInt32(dr["TipoDoc"]),
                         RazonSocial = dr["RazonSocial"].ToString(),
                         Direccion = dr["Direccion"].ToString(),
-                        Region = dr["Provincia"].ToString(),
+                        Region = dr["Region"].ToString(),
+                        IdProvincia =Prov,
+                    
                         Distrito = dr["Distrito"].ToString(),
                         Ubigeo = dr["Ubigeo"].ToString(),
                         Telefono = dr["Telefono"].ToString(),
@@ -115,7 +122,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@razonSocial", Client.RazonSocial);
                 cmd.Parameters.AddWithValue("@direccion", Client.Direccion);
                 cmd.Parameters.AddWithValue("@region", Client.Region);
-                cmd.Parameters.AddWithValue("@provincia", Client.Provincia);
+                cmd.Parameters.AddWithValue("@provincia", Client.IdProvincia.idProvincia);
                 cmd.Parameters.AddWithValue("@distrito", Client.Distrito);
                 cmd.Parameters.AddWithValue("@ubigeo", Client.Ubigeo);
                 cmd.Parameters.AddWithValue("@telefono", Client.Telefono);

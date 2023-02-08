@@ -14,7 +14,7 @@ namespace CapaEntidad
         private string razonSocial;
         private string direccion;
         private string region;
-        private string provincia;
+        private EntProvincia idProvincia;
         private string distrito;
         private string ubigeo;
         private string telefono;
@@ -30,7 +30,7 @@ namespace CapaEntidad
         }
 
         public EntClientes(int idCliente, string rucDni, int tipoDoc, string razonSocial, string direccion, string region,
-            string provincia, string distrito, string ubigeo, string telefono, string correo, float record)
+            EntProvincia idProvincia, string distrito, string ubigeo, string telefono, string correo, float record)
         {
             this.IdCliente = idCliente;
             this.RucDni = rucDni;
@@ -38,7 +38,7 @@ namespace CapaEntidad
             this.RazonSocial = razonSocial;
             this.Direccion = direccion;
             this.Region = region;
-            this.Provincia = provincia;
+            this.idProvincia = idProvincia;
             this.Distrito = distrito;
             this.Ubigeo = ubigeo;
             this.Telefono = telefono;
@@ -83,10 +83,10 @@ namespace CapaEntidad
             set { region = value; }
         }
 
-        public string Provincia
+        public EntProvincia IdProvincia
         {
-            get { return provincia; }
-            set { provincia = value; }
+            get { return idProvincia; }
+            set { idProvincia = value; }
         }
 
         public string Distrito

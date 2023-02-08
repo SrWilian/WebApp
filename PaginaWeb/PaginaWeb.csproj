@@ -134,7 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\css\Clientes\AgregarCliente.css" />
+    <Content Include="Content\css\Clientes\AgregarClient.css" />
     <Content Include="Content\css\Clientes\AgregarCliente2.css" />
     <Content Include="Content\css\login\login.css" />
     <Content Include="Content\css\Usuario\RegistrarUsuario.css" />

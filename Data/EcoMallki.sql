@@ -90,7 +90,21 @@ CREATE TABLE Clientes
 )
 go
 
+--COMBOBOX CLIENTES
+create table provicia(
+idProvincia int primary key,
+desProvincia varchar(50),
 
+)
+go
+create or alter procedure spListarProvincia
+
+as
+begin
+	Select * from provicia
+end
+
+go
 
 create procedure RegistrarClientes
 (
