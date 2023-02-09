@@ -25,7 +25,7 @@ namespace PaginaWeb.Controllers
             return View(lista);
         }
         [HttpGet]
-        public ActionResult AgregarCliente()
+        public ActionResult AgregarCliente(EntProvincia prov)
         {
 
             List<EntProvincia> listaProvincia = LogProvincia.Instancia.ListarProvincia();

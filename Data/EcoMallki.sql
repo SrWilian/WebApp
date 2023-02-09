@@ -107,6 +107,33 @@ CREATE  TABLE Clientes
 
 	constraint FK_idProvincia foreign key(idProvincia)references provincia(idProvincia),
 )
+
+go
+
+create or alter PROCEDURE ListarCliente
+
+as
+begin
+	Select  IdCliente,
+	RucDni ,
+	TipoDoc ,
+	RazonSocial ,
+	Direccion ,
+	Region ,
+	Clientes.idProvincia ,
+	Distrito ,
+	Ubigeo ,
+	Telefono ,
+	Correo ,
+	Record  from Clientes
+	 INNER JOIN  provincia Pro        on Pro.idProvincia = Clientes.idProvincia
+	 where Clientes.idProvincia = 1
+end
+
+
+
+
+
 go
 create procedure RegistrarClientes
 (
