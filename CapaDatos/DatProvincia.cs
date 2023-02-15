@@ -37,8 +37,8 @@ namespace CapaDatos
                 {
                     EntProvincia ci = new EntProvincia();
 
-                    ci.idProvincia = Convert.ToInt32(dr["idProvincia"]);
-                    ci.desProvincia = dr["desProvincia"].ToString();
+                    ci.IdProvincia = Convert.ToInt32(dr["idProvincia"]);
+                    ci.DesProvincia = dr["desProvincia"].ToString();
 
 
                     lista.Add(ci);

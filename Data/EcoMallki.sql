@@ -6,18 +6,6 @@ go
 -----------------------CLIENTE------------
 -- TABLA CLIENTE
 
-----------------TABLA EMPLEADO------------------------
-create table empleado(
-idEmplead int  primary key identity,
-nombres varchar(100),
-apellidos varchar(100),
-email varchar(80),
-dirección varchar(200),
-celular varchar(9),
-Departamento int,
-
-)
-go
 -----COMBOBOX DEPARTAMENTO------
 create table departamento(
 idDepartamento int  primary key identity,
@@ -26,53 +14,6 @@ NombreDepartamento varchar(50)
 
 go
 
-
-create table USUARIO(
-idUsuario int primary key identity,
-email varchar(80),
-clave varchar(25)
-)
-go
-create procedure spRegistrarusuario(
-@email varchar(80),
-@clave varchar(25),
-@registrado bit output,
-@Mensaje varchar(100) output
-)
-as 
-begin
-	--if(@email = null)
-
-	--begin	
-	--set @Mensaje = 'Correo no válido'
-	--end
-	if(not exists(select * from USUARIO where email = @email))
-		begin
-			insert into USUARIO(email,clave) values (@email,@clave)
-			set @registrado = 1
-			set @Mensaje = 'Registro exitoso'
-		end
-	else
-		begin
-			set @registrado = 0
-			set @Mensaje = 'Correo Existente'
-		end
-end
-go
-Create or alter Procedure spValidarUsuario(
-@email varchar(80),
-@clave varchar(25)
-)
-as
-begin
-	if(exists(select * from USUARIO where email = @email and clave = @clave))
-		select idUsuario from USUARIO  where email = @email and clave = @clave
-		else
-			select '0'
-
-end
-
-go
 
 
 --COMBOBOX CLIENTES
@@ -135,14 +76,14 @@ end
 
 
 go
-create procedure RegistrarClientes
+create or alter procedure RegistrarClientes
 (
 @rucDni varchar(11),
 @tipoDoc int,
 @razonSocial varchar(200),
 @direccion varchar(100),
 @region varchar(50),
-@provincia varchar(50),
+@idProvincia int,
 @distrito varchar(8),
 @ubigeo varchar(50),
 @telefono varchar(50),
@@ -151,8 +92,8 @@ create procedure RegistrarClientes
 )
 as
 BEGIN
-	insert into Clientes(RucDni, tipoDoc, RazonSocial, Direccion, Region, Provincia, Distrito, Ubigeo, Telefono, Correo, Record )
-	 values (@rucDni, @tipoDoc, @razonSocial, @direccion, @region, @Provincia, @distrito, @ubigeo, @telefono, @correo, @record);
+	insert into Clientes(RucDni, tipoDoc, RazonSocial, Direccion, Region, idProvincia, Distrito, Ubigeo, Telefono, Correo, Record )
+	 values (@rucDni, @tipoDoc, @razonSocial, @direccion, @region, @idProvincia, @distrito, @ubigeo, @telefono, @correo, @record);
 END
 
 go
@@ -196,6 +137,108 @@ as
 begin
 	Select * from Clientes
 end
+
+
+
+
+
+
+--------------TABLA EMPLEADO------------------------
+create table empleado(
+idEmplead int  primary key identity,
+nombres varchar(100),
+apellidos varchar(100),
+email varchar(80),
+dirección varchar(200),
+celular varchar(9),
+Departamento int,
+
+)
+go
+
+create table USUARIO(
+idUsuario int primary key identity,
+email varchar(80),
+clave varchar(25)
+)
+go
+create procedure spRegistrarusuario(
+@email varchar(80),
+@clave varchar(25),
+@registrado bit output,
+@Mensaje varchar(100) output
+)
+as 
+begin
+	--if(@email = null)
+
+	--begin	
+	--set @Mensaje = 'Correo no válido'
+	--end
+	if(not exists(select * from USUARIO where email = @email))
+		begin
+			insert into USUARIO(email,clave) values (@email,@clave)
+			set @registrado = 1
+			set @Mensaje = 'Registro exitoso'
+		end
+	else
+		begin
+			set @registrado = 0
+			set @Mensaje = 'Correo Existente'
+		end
+end
+go
+Create or alter Procedure spValidarUsuario(
+@email varchar(80),
+@clave varchar(25)
+)
+as
+begin
+	if(exists(select * from USUARIO where email = @email and clave = @clave))
+		select idUsuario from USUARIO  where email = @email and clave = @clave
+		else
+			select '0'
+
+end
+
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

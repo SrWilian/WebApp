@@ -22,42 +22,50 @@
         <div class="form-container">
             <p class=" singUp">crear un nuevo cliente </p>
 
-            <form class="form" action="@Url.Action("AgregarCliente","cliente")" method="post">
+            <form class="form" action="@Url.Action("AgregarCliente","Clientes")" method="post">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class=" group-grand">
                     <div class="group-long">
                         <div class=" form-group">
                             <label for="document" class="label-document">  Documento  </label>
                             <div>
-                                <input type="text" name="document" class="input input-document">
+                                <input type="text" name="RucDni" class="input input-document">
                                 @Html.ValidationMessageFor(model => model.RucDni, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
+                            <label for="document" class="label-tip-document">  Tipo de documento  </label>
+                            <div>
+                                <input type="text" name="TipoDoc" class="input input-tip-document">
+                                @Html.ValidationMessageFor(model => model.TipoDoc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class=" form-group">
                             <label for="razon-social" class="label-razon-social">  Razón social  </label>
                             <div>
-                                <input type="text" name="tipe-document" class="input input-tipe-document">
-                                @Html.ValidationMessageFor(model => model.TipoDoc, "", new { @class = "text-danger" })
+                                <input type="text" name="RazonSocial" class="input input-tipe-document">
+                                @Html.ValidationMessageFor(model => model.RazonSocial, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="address" class="label-address">  Dirección  </label>
                             <div>
-                                <input type="text" name="address" class="input input-address">
+                                <input type="text" name="Direccion" class="input input-address">
                                 @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="region" class="label-region">  Región  </label>
                             <div>
-                                <input type="text" name="region" class="input input-region">
+                                <input type="text" name="Region" class="input input-region">
                                 @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="province" class="label-province">  Provincia  </label>
                             <div>
-                              
+
                                 <div class="form-group-1">
 
                                     <div class="col-md-10">
@@ -74,35 +82,35 @@
                         <div class=" form-group">
                             <label for="district" class="label-district">  Distrito  </label>
                             <div>
-                                <input type="text" name="district" class="input input-district">
+                                <input type="text" name="Distrito" class="input input-district">
                                 @Html.ValidationMessageFor(model => model.Distrito, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="ubigeo" class="label-ubigeo">  Ubigéo  </label>
                             <div>
-                                <input type="text" name="ubigeo" class="input input-ubigeo">
+                                <input type="text" name="Ubigeo" class="input input-ubigeo">
                                 @Html.ValidationMessageFor(model => model.Ubigeo, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="telefono" class="label-telefono">  Teléfono  </label>
                             <div>
-                                <input type="text" name="telefono" class="input input-telefono">
+                                <input type="text" name="Telefono" class="input input-telefono">
                                 @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="email" class="label-email">  Email  </label>
                             <div>
-                                <input type="text" name="email" class="input input-email">
+                                <input type="text" name="Correo" class="input input-email">
                                 @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class=" form-group">
                             <label for="<record" class="label-client">  Record </label>
                             <div>
-                                <input type="text" name="record" class="input input-record">
+                                <input type="text" name="Record" class="input input-record">
                                 @Html.ValidationMessageFor(model => model.Record, "", new { @class = "text-danger" })
                             </div>
                         </div>

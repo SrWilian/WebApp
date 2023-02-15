@@ -37,11 +37,12 @@ namespace PaginaWeb.Controllers
         [HttpPost]
         public ActionResult AgregarCliente(EntClientes Cli, FormCollection frm)
         {
-            bool insertar = LogClientes.Instancia.AgregarCliente(Cli);
+          
             try
             {
                 Cli.IdProvincia = new EntProvincia();
-                Cli.IdProvincia.idProvincia = Convert.ToInt32(frm["cboProvincia"]);
+                Cli.IdProvincia.IdProvincia = Convert.ToInt32(frm["cboProvincia"]);
+                bool insertar = LogClientes.Instancia.AgregarCliente(Cli);
                 if (insertar)
                 {
                     return RedirectToAction("ListarCliente");
