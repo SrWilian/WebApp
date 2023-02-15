@@ -25,12 +25,12 @@ namespace PaginaWeb.Controllers
             return View(lista);
         }
         [HttpGet]
-        public ActionResult AgregarCliente(EntProvincia prov)
+        public ActionResult AgregarCliente()
         {
-
+            
             List<EntProvincia> listaProvincia = LogProvincia.Instancia.ListarProvincia();
-            var lsProvincia = new SelectList(listaProvincia, "idProvincia", "desProvincia");
-            ViewBag.listaProvincia = lsProvincia;
+            ViewBag.listaProvincias = new SelectList(listaProvincia, "idProvincia", "desProvincia");
+            //ViewBag.listaProvincias = lsProvincia;
             return View();
         }
 
