@@ -38,10 +38,11 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@ubigeo", Client.Ubigeo);
                 cmd.Parameters.AddWithValue("@telefono", Client.Telefono);
                 cmd.Parameters.AddWithValue("@correo", Client.Correo);
-                cmd.Parameters.AddWithValue("@record", 0);
+                cmd.Parameters.AddWithValue("@record", Client.Record);
 
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
+                
                 if (i != 0)
                 {
                     creado = true;
